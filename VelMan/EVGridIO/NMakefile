@@ -1,0 +1,12 @@
+# $Id: NMakefile,v 1.1 2005/07/28 15:04:04 carl Exp $
+# Build EV Grid IO test program
+
+CFLAGS = /nologo
+
+OBJ = testEVGridIO.obj readEVGrid.obj writeEVGrid.obj ioEVGrid.obj
+
+testEVGridIO.exe: $(OBJ)
+	link $(CFLAGS) /out:$@ /incremental:no $(OBJ)
+
+clean: 
+	-del testEVGridIO.exe $(OBJ)

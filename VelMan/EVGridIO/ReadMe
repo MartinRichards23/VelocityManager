@@ -1,0 +1,577 @@
+
+ $Id: ReadMe,v 1.2 2005/07/28 15:03:14 carl Exp $	
+
+Unlike "gridio" library that used to be distributed with EarthVision,
+the EVGridIO library is a source-only distribution.   It is written 
+in C and compiles without problem with gcc, Sun's C compiler, SGI's C
+compiler, and MS Visual C and probably most others.
+
+We distribute these 8 files:
+   ReadMe - (this file) Documentation
+   readEVGrid.c - Source for grid reading functions
+   writeEVGrid.c - Source for grid writing functions
+   ioEVGrid.c - Source for low-level binary I/O functions
+   EVGridIO.h - Header file with prototypes and certain enums.
+   testEVGridIO.c - Test program
+   Makefile - Simple Unix-style makefile
+   NMakefile - Windows VC "nmake" makefile
+
+Notes
+
+* Shareware Disclaimer:
+  This software is SHAREWARE and is provided as a benefit for our
+  clients by Dynamic Graphics, Inc.; however, it is unsupported.
+  Dynamic Graphics accepts no responsibility for the content,
+  maintenance, or support of SHAREWARE.
+  
+* If you find problems, PLEASE do everyone a favor and contact
+  Dynamic Graphics.  If a particular grid causes problems, please send 
+  it too if possible.  If a particular compiler that we have not
+  tested complains about something in the source, please include a
+  suggested fix if possible.
+
+* In order to keep these routines as easy to use as possible, there
+  are certain technical limitations.  (See Limitations, below.)  If
+  you run into one of these limitations, please contact Dynamic
+  Graphics and we can consider extending these routines to accomodate
+  your needs.
+
+* If you intend to just read grids, then you just need to add
+  readEVGrid.c, ioEVGrid.c, and EVGridIO.h to your program's source.
+  If you intend to just write grids, then you just need to add
+  writeEVGrid.c, ioEVGrid.c, and EVGridIO.h to your program's source.
+
+* Send your questions, comments, and suggestions to carl@dgi.com
+
+Carl Godkin
+28 July 2005
+
+These functions read a 2D or 3D EarthVision grid.  
+
+       int readUnrotated3DEVGrid (const char *gridName, char **desc,
+				  float **grid, int *isBordered,
+				  int *xcol, int *yrow, int *zlev,
+				  double *xmin, double *xmax,
+				  double *ymin, double *ymax,
+				  double *zmin, double *zmax,
+				  int *projection, int *ellipsoid,
+				  int *zone, int *units,
+				  double *projParms, int *zUnits, int *pUnits,
+				  char **trouble);
+
+       int readUnrotated2DEVGrid (const char *gridName, char **desc,
+				  float **grid, int *isBordered,
+				  int *xcol, int *yrow,
+				  double *xmin, double *xmax,
+				  double *ymin, double *ymax,
+				  int *projection, int *ellipsoid,
+				  int *zone, int *units,
+				  double *projParms, int *zUnits,
+				  char **vfltFile, char **nvfltFile,
+				  char **trouble);
+
+       int read3DEVGrid (const char *gridName, char **desc,
+			 float **grid, int *isBordered,
+			 int *xcol, int *yrow, int *zlev,
+			 double *xpivot, double *xrange,
+			 double *ypivot, double *yrange,
+			 double *zpivot, double *zrange,
+			 double *angle,
+			 int *projection, int *ellipsoid,
+			 int *zone, int *units,
+			 double *projParms, int *zUnits, int *pUnits,
+			 char **trouble);
+     
+       int read2DEVGrid (const char *gridName, char **desc,
+			 float **grid, int *isBordered,
+			 int *xcol, int *yrow,
+			 double *xpivot, double *xrange,
+			 double *ypivot, double *yrange,
+			 double *angle,
+			 int *projection, int *ellipsoid,
+			 int *zone, int *units,
+			 double *projParms, int *zUnits,
+			 char **vfltFile, char **nvfltFile,
+			 char **trouble);
+
+       int readEVGrid (const char *gridName, int *is2D, char **descPtr,
+		       float **gridPtr, int *isBorderedPtr,
+		       int *xcolPtr, int *yrowPtr, int *zlevPtr,
+		       double *xpivotPtr, double *xrangePtr,
+		       double *ypivotPtr, double *yrangePtr,
+		       double *zpivotPtr, double *zrangePtr,
+		       double *anglePtr,
+		       int *projectionPtr, int *ellipsoidPtr,
+		       int *zonePtr, int *unitsPtr,
+		       double *projectionParms, int *zUnitsPtr, int *pUnitsPtr,
+		       char **vfltFilePtr, char **nvfltFilePtr,
+		       char **trouble);
+
+
+
+Input
+-----
+	gridName - File name of grid to read.
+
+Output
+------
+	desc - Description string.  Contains information provided by
+		user.  The function allocates space for description which
+		may be freed with free().  If NULL is passed, no
+		description is returned.  Note that a grid may have no
+		description so returned string may be NULL.
+
+	grid - Grid node values.  Order is from lower left (xmin,
+		ymin) to lower right (xmax, ymin), and then increment
+		y-row to (xmin, ymin + 1 row).  Last node is (xmax,
+		ymax).  For 3-D grids, the order is from zmin to zmax,
+		with each Z-level written in the same order as a 2-D
+		grid.  The function allocates space for the grid array
+		which may be freed with free.  If NULL is passed, grid
+		is not returned although the rest of the header values
+		would be.
+
+		The EarthVision null value is always 1.0e+20.
+
+        is2D - Value will be 1 if grid is 2D or 0 if grid is 3D.
+
+	isBordered - EarthVision creates 2D grids that may be "bordered" 
+                by an additional X-column and Y-row of live grid nodes
+                on all four sides to provide for better and faster
+                interpolation near the edges.  It is important to
+                check the isBordered flag so that the grid node
+                locations can be properly calculated.
+
+                If isBordered is non-zero, then the grid has a one
+                node "skin" of nodes around the outside.  In that
+                case, the first grid value in a 2D grid is not at
+                (xmin, ymin), it is at (xmin-dx, ymin-dy).  Likewise,
+                the last grid node is not at (xmax, ymax), but at
+                (xmax+dx, ymax+dy). The values dx, and dy are:
+
+                dx = (xmax - xmin) / (xcol-3);
+                dy = (ymax - ymin) / (yrow-3);
+
+                (Note the locations here are not correct for rotated
+                grids although the idea is the same: There would be an
+                extra row and column on all sides of a 2D grid.)
+
+                The values for xcol, and yrow that are read from the
+                grid file will include 2 extra nodes in each direction
+                when reading a bordered grid. It is possible (and
+                indeed some EarthVision applications do this) to
+                subtract 2 from each of xcol, and yrow, and copy just
+                the non-border grid nodes into an unbordered grid
+                array.
+
+                Alternatively, the reading application can adjust
+                xmin, xmax, ymin, and ymax and use the entire bordered
+                grid:
+		  xmin -= dx;
+		  xmax += dx;
+		  ymin -= dy;
+		  ymax += dy;
+
+	xcol - Number of grid nodes in the X direction.
+
+	yrow - Number of grid nodes in the Y direction.
+
+	zlev - (3D only) Number of grid nodes in the Z direction.
+
+	xmin, xmax, ymin, ymax - (Unrotated grids) XY extent of grid
+
+	zmin, zmax - (Unrotated 3D grids) Z extent of grid
+
+	xpivot, ypivot - (Rotated grids) Lower left corner of grid
+
+	xrange, yrange - (Rotated grids) Range of grid
+
+        zpivot, zrange - (Rotated 3D grids) Z extent of grid
+
+	angle - (Rotated grids) Rotation angle.  Measured clockwise
+                in radians.
+
+	vfltFile - (2D only) Vertical fault file used in
+		gridding.  The function will allocate space for this
+		string which may be freed later with free().  If NULL
+		is passed, vfltFile won't be returned.  Note that a
+		grid may have no associated vertical fault file so
+		returned string may be NULL.
+
+		A grid may have no associated vertical fault file.
+
+	nvfltFile - (2D only) Nonvertical fault file used in
+		gridding.  The function will allocate space for this
+		string which may be freed later with free().  If NULL
+		is passed, nvfltFile won't be returned.  Note that a
+		grid may have no associated non-vertical fault file so
+		returned string may be NULL.
+
+		A grid may have no associated non-vertical fault file.
+
+                The vertical fault file has the format X,Y,ID, where
+                ID is a number that changes for each fault segment.
+                As with all DGI formatted files, lines with a pound
+                sign (#) in column 1 are header records or comments
+                and should be skipped over.
+
+                The non-vertical fault file has the format of a DGI
+                polygon file.  Essentially, that means records
+                starting with the word "POLYGON" (case ignored)
+                followed by records containing X,Y pairs until another
+                POLYGON record is encountered.  If the X-coordinate
+                matches the null value (1.0e20), a "hole" polygon is
+                started.  (This hole concept blows the minds of the
+                Geoshare powers that be so please ask for
+                clarification if necessary.)  Again, and as with all
+                DGI formatted files, lines with a pound sign (#) in
+                column 1 are header records or comments and should be
+                skipped over.
+
+                For most purposes, non-vertical fault polygons are
+                treated just as vertical fault lines.  Fault polygon
+                holes may also treated as fault lines.
+
+	projection - Projection, listed in EVGridIO.h.
+                If NULL is passed, no projection will be returned.
+
+	ellipsoid - Ellipsoid, listed in EVGridIO.h. 
+                If NULL is passed, no ellipsoid will be returned.
+
+	zone - Projection zone code.  Zone is only meaningful for the
+	       State Plane and UTM coordinate systems.  Negative UTM
+	       zone codes indicate southern hemisphere locations using
+	       a -10,000,000 meter false northing.  If NULL is passed,
+	       no zone will be returned.
+
+	units - Projection units, listed in EVGridIO.h.
+               If NULL is passed, no units will be returned.
+
+	projParms - Projection parameters defining projection.
+		Pass an array of 15 doubles or NULL if not interested.
+
+	zUnits - Elevation units code, listed in EVGridIO.h.
+	        Use isDownward macro, also defined there, to determine
+	        if Z increases downward.
+                If NULL is passed, no units will be returned.
+
+	pUnits - Property units code, listed in EVGridIO.h.
+                If NULL is passed, no units will be returned.
+
+	trouble - Error message when return value is non-zer.
+		Call free() when done with the message.  Pass NULL if
+		not interested in the message. 
+
+Return value
+------------
+
+	Function returns zero if successful, non-zero if not.  In the
+	event of an error, the function will write an error message
+	into a string if trouble is not NULL.
+
+	-1   Attempt to read rotated grid with unrotated function.
+	-2   Attempt to read 2D grid with read3DEVGrid().
+	-3   Attempt to read 3D grid with read2DEVGrid().
+        -4   fopen() failed on read.
+	-5   Read failed immediately after open.  File presumed empty.
+        -6   File's magic number (first word) not an EV 2D or 3D grid
+        -7   Grid format too new.  Space version > 1.
+        -8   3D rotated grids are not supported by this function
+        -9   Grid has unrecognized kind of space.
+        -10  Bug: same as -9 but found later.  Should never happen.
+        -11  Grid is conformal which is not supported by this function
+	-12  Grid values are packed into 8-bit format which is not supported.
+        
+
+Limitations
+-----------
+        These functions cannot read conformal 3D grids.
+	These functions cannot read 8-bit values.
+	These functions cannot read 3D-rotated grids (i.e., grids that 
+	are rotated out of the XY plane).
+
+These functions write a 2D or 3D EarthVision grid.
+
+       int writeUnrotated3DEVGrid (const char *gridName, char *desc,
+				   float *grid,
+				   int xcol, int yrow, int zlev,
+				   double xmin, double xmax,
+				   double ymin, double ymax,
+				   double zmin, double zmax,
+				   int projection, int ellipsoid,
+				   int zone, int units,
+				   double *projParms, int zUnits, int pUnits,
+				   char **trouble);
+
+       int writeUnrotated2DEVGrid (const char *gridName, char *desc,
+				   float *grid,
+				   int xcol, int yrow,
+				   double xmin, double xmax,
+				   double ymin, double ymax,
+				   int projection, int ellipsoid,
+				   int zone, int units,
+				   double *projParms, int zUnits,
+				   char *vfltFile, char *nvfltFile,
+				   char **trouble);
+
+       int write3DEVGrid (const char *gridName, char *desc,
+			  float *grid,
+			  int xcol, int yrow, int zlev,
+			  double xpivot, double xrange,
+			  double ypivot, double yrange,
+			  double zpivot, double zrange,
+			  double angle,
+			  int projection, int ellipsoid, int zone, int units,
+			  double *projParms, int zUnits, int pUnits,
+			  char **trouble);
+
+       int write2DEVGrid (const char *gridName, char *desc,
+			  float *grid,
+			  int xcol, int yrow,
+			  double xpivot, double xrange,
+			  double ypivot, double yrange,
+			  double angle,
+			  int projection, int ellipsoid, int zone, int units,
+			  double *projParms, int zUnits,
+			  char *vfltFile, char *nvfltFile,
+			  char **trouble);
+     
+       int writeEVGrid (const char *gridName, int is2D, char *desc,
+			float *grid,
+			int xcol, int yrow, int zlev,
+			double xpivot, double xrange,
+			double ypivot, double yrange,
+			double zpivot, double zrange,
+			double angle,
+			int projection, int ellipsoid, int zone, int units,
+			double *projParms, int zUnits, int pUnits,
+			char *vfltFile, char *nvfltFile,
+			char **trouble);
+
+Input
+-----
+	gridName - File name of grid to write.
+
+        is2D - Pass 1 if grid is 2D and 0 if grid is 3D.
+
+	desc - Description string.  May contain any information about
+		the grid provided by the user.  NULL may be passed.
+
+	grid - Grid node values.  For 2-D grids, the order is from
+		lower left (xmin, ymin) to lower right (xmax, ymin),
+		and then increment y-row to (xmin, ymin + 1 row).
+		Last node is (xmax, ymax).  For 3-D grids, the order
+		is from zmin to zmax, with each Z-level written in the
+		same order as a 2-D grid.
+
+		The EarthVision null value is always 1.0e+20.
+
+	xcol - Number of grid nodes in the X direction.
+
+	yrow - Number of grid nodes in the Y direction.
+
+	zlev - (3D only) Number of grid nodes in the Z direction.
+
+	xmin, xmax, ymin, ymax - Range of grid.
+
+	zmin, zmax - (3D only) Z-Range of grid
+
+	vfltFile - (2D only) Vertical fault file used in
+		gridding.  NULL may be passed.
+
+	nvfltFile - (2D only) Nonvertical fault file used in
+		gridding.  NULL may be passed.
+
+	projection - Projection, listed in EVGridIO.h.
+
+	ellipsoid - Ellipsoid, listed in EVGridIO.h. 
+		
+	zone - Projection zone code.  If there is no projection or it
+		is not State Plane or UTM, pass 0.
+
+	units - Projection units, listed in EVGridIO.h.
+
+	projParms - Projection parameters defining projection.
+	        Pass NULL or an array of 15 doubles
+		which may all be set to 0.0 if the projection is
+		unknown. 
+
+	zUnits - Elevation units code, listed in EVGridIO.h.
+	        If Z increases downward, OR the units with
+                Evu_downward.
+
+	pUnits - Property units code, listed in EVGridIO.h.
+
+	trouble - Error message when return value is non-zero.  
+		Call free() when done with the message.  Pass NULL if
+		not interested in the message. 
+
+Return value
+------------
+
+	Function returns zero if successful, non-zero if not.  In the
+	event of an error, the function will write an error message
+	into a string if trouble is not NULL.
+
+	-1   fopen() failed for write.
+	-2   First write failed.
+	-3   Last write failed.
+
+Limitations
+-----------
+        These functions cannot write conformal 3D grids.
+	These functions cannot write 8-bit values.
+	These functions cannot write 3D-rotated grids (i.e., grids that 
+	are rotated out of XY plane).
+	These functions cannot write bordered grids.  (See isBordered
+	explanation under the read- routines above.)
+		
+Projection Parameters
+---------------------
+
+	The projection parameters vary for each coordinate system
+        
+         ----------------------------------------------------------------
+         Local Rectangular      -1      and
+         Geographic coordinates  0
+         ----------------------------------------------------------------
+                units
+
+          ----------------------------------------------------------------
+          UTM                    1
+          ----------------------------------------------------------------
+		 ellipsoid
+                 zone
+                 units
+                 projParms[0] - Semi-major axis of ellipsoid
+                 projParms[1] - Semi-minor axis of ellipsoid
+
+          ----------------------------------------------------------------
+          State Plane            2
+          ----------------------------------------------------------------
+		 ellipsoid
+                 zone
+                 units (ft or m)
+                 projParms[0] - Semi-major axis of ellipsoid
+                 projParms[1] - Semi-minor axis of ellipsoid
+
+          ----------------------------------------------------------------
+          Albers Equal Area      3       and
+          Lambert Conformal Conic 4
+          ----------------------------------------------------------------
+		 ellipsoid
+                 units
+                 projParms[0] - Semi-major axis of ellipsoid
+                 projParms[1] - Semi-minor axis of ellipsoid
+                 projParms[2] - 1st standard parallel
+                 projParms[3] - 2nd standard parallel
+                 projParms[4] - Central meridian
+                 projParms[5] - Latitude of origin
+                 projParms[6] - False easting
+                 projParms[7] - False northing
+
+          ----------------------------------------------------------------
+          Mercator               5
+          ----------------------------------------------------------------
+		 ellipsoid
+                 units
+                 projParms[0] - Semi-major axis of ellipsoid
+                 projParms[1] - Semi-minor axis of ellipsoid
+                 projParms[2] -
+                 projParms[3] -
+                 projParms[4] - Central meridian
+                 projParms[5] - Latitude of true scale
+                 projParms[6] - False easting
+                 projParms[7] - False northing
+
+          ----------------------------------------------------------------
+          PolarStereographic     6
+          ----------------------------------------------------------------
+		 ellipsoid
+                 units
+                 projParms[0] - Semi-major axis of ellipsoid
+                 projParms[1] - Semi-minor axis of ellipsoid
+                 projParms[2] -
+                 projParms[3] -
+                 projParms[4] - Longitude directed straight down
+                 projParms[5] - Latitude of true scale
+                 projParms[6] - False easting
+                 projParms[7] - False northing
+
+          ----------------------------------------------------------------
+          American Polyconic       7
+          Cassini                 23
+	  Azimuthal Equidistant   26
+          ----------------------------------------------------------------
+		 ellipsoid
+                 units
+                 projParms[0] - Semi-major axis of ellipsoid
+                 projParms[1] - Semi-minor axis of ellipsoid
+                 projParms[2] -
+                 projParms[3] -
+                 projParms[4] - Central meridian
+                 projParms[5] - Latitude of origin
+                 projParms[6] - False easting
+                 projParms[7] - False northing
+
+          ----------------------------------------------------------------
+          Transverse Mercator    9
+          ----------------------------------------------------------------
+		 ellipsoid
+                 units
+                 projParms[0] - Semi-major axis of ellipsoid
+                 projParms[1] - Semi-minor axis of ellipsoid
+                 projParms[2] - Scale factor at central meridian
+                 projParms[3] -
+                 projParms[4] - Central meridian
+                 projParms[5] - Latitude of origin
+                 projParms[6] - False easting
+                 projParms[7] - False northing
+
+          ----------------------------------------------------------------
+	  Amersfoort             21
+	  New Amersfoort         22
+          ----------------------------------------------------------------
+		 ellipsoid
+		 none
+
+          ----------------------------------------------------------------
+	  Lambert Tangential     24
+          ----------------------------------------------------------------
+		 ellipsoid
+                 projParms[0] - Semi-major axis of ellipsoid
+                 projParms[1] - Semi-minor axis of ellipsoid
+                 projParms[2] - Scale factor at central meridian
+                 projParms[3] -
+                 projParms[4] - Central meridian
+                 projParms[5] - Latitude of origin
+                 projParms[6] - False easting
+                 projParms[7] - False northing
+
+          ----------------------------------------------------------------
+	  Oblique Mercator       20
+	  Rectified Skew Orthomorphic    25
+          ----------------------------------------------------------------
+		 ellipsoid
+                 projParms[0] - Semi-major axis of ellipsoid
+                 projParms[1] - Semi-minor axis of ellipsoid
+                 projParms[2] - Scale factor at central meridian
+                 projParms[3] - Azimuth of initial line
+                 projParms[4] - Central meridian
+                 projParms[5] - Latitude of origin
+                 projParms[6] - False easting
+                 projParms[7] - False northing
+		 projParms[8] - Angle from Rectified to Skew
+
+
+         Latitudes and longitudes defining projections are stored in
+         "packed DMS" format.  Essentially, that means that latitudes
+         and longitudes have the form:
+                 degrees * 1.0e6 + minutes * 1.0e3 + seconds
+
+	 In the western or southern hemisphere, this sum will be
+         multiplied by negative one.
+
+	 The datum and ellipsoid can be determined from the semi-major
+         and semi-minor axes.
+                

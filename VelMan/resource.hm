@@ -1,0 +1,4 @@
+// Microsoft Visual C++ generated Help ID include file.
+// Used by Velman.rc
+//
+#define HIDC_SLASH_TEXT                 0x81010541    // IDD_OPEN_FILE_BRWS

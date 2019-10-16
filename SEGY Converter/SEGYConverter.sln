@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEGYConvert", "SEGYConverter\SEGYConvert.csproj", "{328EFC4C-8967-4880-B83C-71704D8D3D26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{328EFC4C-8967-4880-B83C-71704D8D3D26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{328EFC4C-8967-4880-B83C-71704D8D3D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{328EFC4C-8967-4880-B83C-71704D8D3D26}.Debug|x86.ActiveCfg = Debug|x86
+		{328EFC4C-8967-4880-B83C-71704D8D3D26}.Debug|x86.Build.0 = Debug|x86
+		{328EFC4C-8967-4880-B83C-71704D8D3D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328EFC4C-8967-4880-B83C-71704D8D3D26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{328EFC4C-8967-4880-B83C-71704D8D3D26}.Release|x86.ActiveCfg = Release|x86
+		{328EFC4C-8967-4880-B83C-71704D8D3D26}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B24ECF8-75A9-4CF4-9BCC-3801132B4C8A}
+	EndGlobalSection
+EndGlobal

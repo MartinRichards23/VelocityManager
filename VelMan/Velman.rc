@@ -1,0 +1,2347 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United Kingdom) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 8,9,0,0
+ PRODUCTVERSION 8,9,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "CompanyName", "CPS Ltd"
+            VALUE "FileDescription", "VelocityManager"
+            VALUE "FileVersion", "8.9.0.0"
+            VALUE "InternalName", "VelocityManager"
+            VALUE "LegalCopyright", "Copyright (c) 1996-2014"
+            VALUE "OriginalFilename", "VelocityManager.exe"
+            VALUE "ProductName", "CPS Ltd VelocityManager"
+            VALUE "ProductVersion", "8.9.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONTOUR_SETTINGS DIALOGEX 0, 0, 300, 180
+STYLE DS_SYSMODAL | DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "Settings for contour plot"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Number of levels",IDC_STATIC,7,7,82,42
+    CONTROL         "None",IDC_CONTSET_NUMLEVS_NONE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,14,21,31,9
+    CONTROL         "Low",IDC_CONTSET_NUMLEVS_LOW,"Button",BS_AUTORADIOBUTTON,54,20,29,10
+    CONTROL         "Normal",IDC_CONTSET_NUMLEVS_NORM,"Button",BS_AUTORADIOBUTTON,14,33,38,10
+    CONTROL         "High",IDC_CONTSET_NUMLEVS_HIGH,"Button",BS_AUTORADIOBUTTON,54,33,31,10
+    GROUPBOX        "Labelling",IDC_STATIC,94,7,132,42
+    CONTROL         "Show labels",IDC_CONTSET_SHOWLABELS,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,100,17,54,10
+    LTEXT           "Density:",IDC_LABEL_DENSITY_TXT,160,16,24,8
+    CONTROL         "Low",IDC_CONTSET_FEWLABELS,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,186,16,29,10
+    CONTROL         "Normal",IDC_CONTSET_NORMALLABELS,"Button",BS_AUTORADIOBUTTON,186,26,38,10
+    CONTROL         "High",IDC_CONTSET_MANYLABELS,"Button",BS_AUTORADIOBUTTON,186,36,33,10
+    GROUPBOX        "Colours",IDC_STATIC,7,51,219,43
+    LTEXT           "Min value:",IDC_STATIC,21,62,34,8
+    LTEXT           "X",IDC_CONTSET_MINCOL,61,62,10,8
+    LTEXT           "--value here--",IDC_CONTSET_MINVAL,75,62,42,8
+    LTEXT           "Max value:",IDC_STATIC,122,62,36,8
+    LTEXT           "X",IDC_CONTSET_MAXCOL,161,62,10,8
+    LTEXT           "--value here--",IDC_CONTSET_MAXVAL,175,62,42,8
+    CONTROL         "Colour fill",IDC_CONTSET_USESHADING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,78,43,10
+    LTEXT           "Palette:",IDC_CONTSET_PAL_TEXT,89,79,29,8
+    CONTROL         "Rainbow",IDC_CONTSET_PAL_RAIN,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,121,78,44,10
+    CONTROL         "Greyscale",IDC_CONTSET_PAL_GREY,"Button",BS_AUTORADIOBUTTON,171,78,47,10
+    GROUPBOX        "Text",IDC_STATIC,7,97,219,36
+    CTEXT           "Font size: 99 pts",IDC_CONTSET_LABELSIZEPREVIEW,14,114,47,8
+    PUSHBUTTON      "smaller",IDC_CONTSET_LABELSMALLER,68,107,33,10
+    PUSHBUTTON      "larger",IDC_CONTSET_LABELLARGER,67,119,33,10
+    LTEXT           "Text color:",IDC_STATIC,125,114,34,8
+    LTEXT           "X",IDC_CONTSET_TEXTCOLPREVIEW,167,114,9,8
+    PUSHBUTTON      "Change...",IDC_CONTSET_CHANGETEXTCOL,178,111,42,15
+    GROUPBOX        "Further plot elements",IDC_OTHERELEMENTSFRAME,7,139,219,28
+    CONTROL         "Show wells",IDC_CONTSET_SHOWWELLS,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,13,152,51,10
+    CONTROL         "Show fault lines",IDC_CONTSET_SHOWFAULTS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,73,152,65,10
+    CONTROL         "Show RMS points",IDC_CONTSET_SHOWSHOTPOINTS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,147,152,68,10
+    DEFPUSHBUTTON   "OK",IDOK,241,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,241,24,50,14
+    LTEXT           "Zooming:\n\nUse left mouse button to select an area of the plot to be zoomed in. Shift+Left button zooms out.",IDC_CONTSET_ZOOMNOTE,232,102,59,63,NOT WS_VISIBLE
+END
+
+IDD_CHOOSE_ANY_GRID DIALOGEX 0, 0, 295, 242
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "-- describe choice here as well --"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,182,221,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,238,221,50,14
+    LTEXT           "-- Describe the choice here --",IDC_CHOOSEGRID_WHATSORT,7,7,152,8
+    LISTBOX         IDC_CHOOSEGRID_LIST,7,30,281,186,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+END
+
+IDD_CHOOSE_ANY_GRID_MULT DIALOGEX 0, 0, 283, 242
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "-- describe choice here too  --"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,167,221,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,226,221,50,14
+    LTEXT           "-- Describe the choice here --",IDC_CHOOSEGRID_WHATSORT,7,7,155,8
+    LISTBOX         IDC_CHOOSEGRID_LIST,7,27,269,168,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "Use control key to select multiple grids",IDC_STATIC1,7,208,96,27
+END
+
+IDD_NEWPROJ_3 DIALOGEX 0, 0, 285, 163
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New project, Step 3 of 3: Scope of Project data"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,228,10,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,228,28,50,14
+    LTEXT           "Specification of input data set.",IDC_STATIC,23,10,183,21
+    CONTROL         "",IDC_SCOPDLG_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,4,42,11,16
+    CONTROL         "",IDC_SCOPDLG_RADIO2,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,4,87,11,16
+    CONTROL         "",IDC_SCOPDLG_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,4,131,12,16
+    LTEXT           "Depth conversion using time grids and well information.\nData required: Time grids, Well time/depth file, Well survey file.",IDC_STATIC,21,41,199,27
+    LTEXT           "Depth conversion using time grids and seismic data (without well data).\nData required: Time grids and RMS datafile.",IDC_STATIC,21,86,248,21
+    LTEXT           "Depth conversion using both well data and seismic data.\nData required: Time grids, Well time/depth file, Well survey file, RMS data file.",IDC_STATIC,21,131,251,21
+    CONTROL         "Velocity functions from wells",IDC_STATIC5,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,21,28,199,8
+    LTEXT           "RMS velocities only",IDC_STATIC6,21,74,204,8
+    LTEXT           "RMS velocities and wells",IDC_STATIC7,21,118,198,8
+END
+
+IDD_RENAME_GRID DIALOGEX 0, 0, 247, 66
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rename grid -- grid name goes here --"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_GRIDRENAME_NAME,56,7,119,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,190,26,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,190,45,50,14
+    LTEXT           "New name:",IDC_STATIC,6,9,37,9
+    LTEXT           "New grid type:",IDC_STATIC,7,29,52,8
+    COMBOBOX        IDC_GRIDIMP_GRIDTYPE,56,26,74,55,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_CREATE_CONSTGRID DIALOGEX 0, 0, 241, 81
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create constant grid"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_CONSTGRID_VALUE,61,23,76,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,184,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,184,24,50,14
+    LTEXT           "All grid nodes will have a constant value.",IDC_STATIC,7,7,132,8
+    LTEXT           "Constant value:",IDC_STATIC,7,26,53,8
+    LTEXT           "New grid type:",IDC_STATIC,7,41,52,8
+    COMBOBOX        IDC_GRIDIMP_GRIDTYPE,63,39,74,55,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_DEFINE_HORIZONS DIALOGEX 0, 0, 243, 234
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Define layers"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_DEFHOR_NEWENTRY,51,33,82,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Add",IDOK,185,33,50,14
+    PUSHBUTTON      "&Complete",IDC_DEFHOR_DONE,185,195,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,185,213,50,14
+    LISTBOX         IDC_DEFHOR_LIST,8,60,172,167,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove layer",IDC_DEFHOR_REMOVE,185,60,50,14
+    LTEXT           "Enter layer names, starting with the uppermost.\n\nPress RETURN after entering each layer.",IDC_STATIC,7,7,149,24
+    LTEXT           "New layer:",IDC_STATIC,7,36,42,8
+    LTEXT           "List of layers:",IDC_STATIC,7,50,53,8
+END
+
+IDD_SPECTR_ANALYSIS DIALOGEX 0, 0, 579, 260
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Spectral analysis --grid name goes here--"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Rebuild clipped values",IDC_SPECANAL_REBUILD,"Button",BS_AUTORADIOBUTTON | WS_GROUP,15,192,104,10
+    CONTROL         "Set clipped values to NULL",IDC_SPECANAL_NULL,"Button",BS_AUTORADIOBUTTON,15,203,127,10
+    CONTROL         "Set clipped values to Min/Max of selected range",IDC_SPECANAL_MINMAX,
+                    "Button",BS_AUTORADIOBUTTON,15,214,169,10
+    PUSHBUTTON      "Clip",IDOK,522,7,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,522,24,50,14
+    LTEXT           "",IDC_SPECANAL_GRAPH,7,43,565,147,WS_BORDER
+    LTEXT           "Grid nodes excluded:",IDC_STATIC2,191,194,74,10
+    LTEXT           "-- %% --",IDC_SPECANAL_NUMEXCL,191,204,120,11
+    LTEXT           "To clip, either slide top and bottom markers to start and end of range or change the values and click apply:",IDC_STATIC,7,17,346,8
+    LTEXT           "Included range:",IDC_STATIC1,367,199,52,8
+    CONTROL         "Set clipped grid as primary",IDC_PRIMARY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,243,98,10
+    EDITTEXT        IDC_EDITFROM,425,198,57,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDITTO,425,214,57,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "Apply",IDC_BUTTON1,426,229,50,14
+    LTEXT           "metres",IDC_STATIC8,486,203,29,8
+    LTEXT           "metres",IDC_STATIC9,485,217,36,8
+END
+
+IDD_FFT_DIRECTION DIALOG 0, 0, 210, 58
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Direction of Fourier Transform"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,153,7,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,153,24,50,14
+    LTEXT           "Specify the direction of the fourier transform:",IDC_STATIC,7,7,112,16
+    CONTROL         "Forward (real space -> reciprocal space)",IDC_FFTDIR_BUTTON1,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,7,28,142,10
+    CONTROL         "Backward (reciprocal space -> real space)",IDC_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON,7,42,149,10
+END
+
+IDD_GRID_STATISTICS DIALOG 0, 0, 208, 131
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Statistics for ... ""..."""
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,151,7,50,14
+    LTEXT           "Grid limits:",IDC_STATIC,4,7,36,8
+    LTEXT           "Static",IDC_GRIDSTAT_XEXT,4,19,112,8
+    LTEXT           "Static",IDC_GRIDSTAT_YEXT,4,45,112,8
+    LTEXT           "Static",IDC_GRIDSTAT_MINMAX,4,73,197,8
+    LTEXT           "Static",IDC_GRIDSTAT_AVG,4,86,197,8
+    LTEXT           "Static",IDC_GRIDSTAT_GRIDSIZE,4,98,197,8
+    LTEXT           "Static",IDC_GRIDSTAT_DELTAX,4,30,112,8
+    LTEXT           "Static",IDC_GRIDSTAT_DELTAY,4,56,112,8
+    LTEXT           "Static",IDC_GRIDSTAT_FAULTS,4,115,197,8
+END
+
+IDD_WELLTABLES DIALOGEX 0, 0, 207, 319
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Well data tables"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Time corrections",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,53,87,10
+    CONTROL         "Depth corrections",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,7,63,85,10
+    CONTROL         "Interval velocity corrections",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,7,73,119,10
+    CONTROL         "Times",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,7,97,35,10
+    CONTROL         "Depths",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,7,107,39,10
+    CONTROL         "Times",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,7,135,124,10
+    CONTROL         "Depths",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,7,144,143,10
+    CONTROL         "Times",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,7,173,102,10
+    CONTROL         "Depths",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,7,183,96,10
+    CONTROL         "Interval times",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,7,210,126,10
+    CONTROL         "Interval depths",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,7,220,105,10
+    CONTROL         "Interval velocities",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,7,230,95,10
+    CONTROL         "Well weighting coefficients",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,7,260,102,10
+    CONTROL         "Residuals",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON,7,289,47,10
+    DEFPUSHBUTTON   "OK",IDOK,150,278,49,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,150,297,49,14
+    LTEXT           "Values at the well locations; as appropriate all measurements are vertical",IDC_STATIC,7,7,131,21
+    LTEXT           "Grid to well ties",IDC_STATIC,7,45,48,8
+    LTEXT           "Interval bases",IDC_STATIC,7,127,45,8
+    LTEXT           "Interval midpoint values",IDC_STATIC,7,165,75,8
+    LTEXT           "Interval values",IDC_STATIC,7,202,47,8
+    LTEXT           "Well weighting values",IDC_STATIC,7,251,70,8
+    LTEXT           "Residuals",IDC_STATIC,7,279,32,8
+    LTEXT           "Interval tops",IDC_STATIC,7,89,40,8
+END
+
+IDD_TIMEGRIDIMP_ERROR DIALOGEX 0, 0, 278, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Time grid import errors"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Details:",IDC_STATIC,7,7,38,8
+    LISTBOX         IDC_TIMPERR_LIST,7,18,264,47,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "-- recommendation goes here --",IDC_TIMPERR_RECC,7,65,264,16
+    PUSHBUTTON      "&Restart import",IDC_RETRYBTN,40,89,98,14
+    PUSHBUTTON      "&Correct errors...",IDC_AUTOCORRECT_BTN,40,110,98,14
+    PUSHBUTTON      "Cancel",IDCANCEL,40,129,98,14
+END
+
+IDD_HOWTO_AUTOCORR DIALOG 0, 0, 237, 80
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "AutoCorrect options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,180,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,180,24,50,14
+    LTEXT           "Choose one of the AutoCorrect options for the conflicting grid nodes:",IDC_STATIC,7,7,146,16
+    CONTROL         "",IDC_HOWTOCORRECT_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,7,25,10,16
+    CONTROL         "Set values of uppermost grid to NULL",IDC_HOWTOCORRECT_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON,7,43,142,10
+    CONTROL         "Set values of lowermost grid to NULL",IDC_HOWTOCORRECT_RADIO3,
+                    "Button",BS_AUTORADIOBUTTON,7,53,151,10
+    CONTROL         "Set values of both grids to NULL",IDC_HOWTOCORRECT_RADIO4,
+                    "Button",BS_AUTORADIOBUTTON,7,63,137,10
+    LTEXT           "Set values of lowermost grid to that of uppermost grid (AutoCorrect)",IDC_STATIC,19,26,111,16
+END
+
+IDD_CREATEPROJDIR DIALOGEX 0, 0, 211, 66
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create new directory"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_CREATEDIR_NAME,7,18,142,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,154,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,154,24,50,14
+    LTEXT           "Enter new directory name:",IDC_STATIC,7,7,78,8
+    LTEXT           "will be created under...",IDC_CREATEDIR_BASEPATH,7,42,197,17
+END
+
+IDD_LIMIT_GRID DIALOGEX 0, 0, 417, 251
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Limit grid"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,360,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,360,24,50,14
+    LTEXT           "This will copy all null values from the reference grid, left panel, to the selected grid, right panel.",IDC_STATIC,7,7,206,16
+    LTEXT           "Reference grid:",IDC_STATIC,7,29,38,8
+    LISTBOX         IDC_GRIDLIMIT_INPUT1,7,40,198,189,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "Grid to be limited:",IDC_STATIC1,209,28,100,8
+    LISTBOX         IDC_GRIDLIMIT_INPUT2,209,40,201,189,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "(output name goes here)",IDC_GRIDLIMIT_OUTPUTNAME,7,236,403,8
+END
+
+IDD_IMRDIALOGUE DIALOGEX 0, 0, 328, 277
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IMR II"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,215,248,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,271,248,50,14
+    GROUPBOX        "Time Grids",IDC_STATIC1,7,7,314,176
+    LISTBOX         IDC_TIMELIST,13,17,301,160,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Careful testing of the operator length will be needed to ensure optimal results",IDC_STATIC,7,188,298,12
+    SCROLLBAR       IDC_SMOOTHSIZE,30,214,267,11
+    GROUPBOX        "Operator Length",IDC_STATIC2,7,207,314,37
+    LTEXT           "Min",IDC_STATIC4,14,226,12,8
+    LTEXT           "Max",IDC_STATIC3,299,217,14,8
+    LTEXT           "xx",IDC_SIZETEXT,160,225,17,8
+END
+
+IDD_ABOUTBOX DIALOGEX 34, 22, 266, 103
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About VelocityManager"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,13,21,20
+    LTEXT           "--version goes here--",IDC_ABOUTBOX_VERSION,40,7,170,8
+    LTEXT           "Copyright (c) 1995-2018",IDC_STATIC,40,18,98,8
+    DEFPUSHBUTTON   "OK",IDOK,222,2,40,14,WS_GROUP
+    LTEXT           "Cambridge Petroleum Software",IDC_STATIC,40,29,102,8
+    GROUPBOX        "Software license information",IDC_STATIC,39,61,224,36
+    LTEXT           "This is a ?? version...",IDC_LICENSE_LICTYPE,45,72,200,8
+    CONTROL         "www.velocitymanager.com",IDC_MFCLINK1,"MfcLink",WS_TABSTOP,39,39,164,14
+END
+
+IDD_NEWPROJ_1 DIALOGEX 0, 0, 323, 226
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "New project, Step 1 of 3: General project information"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "OK",IDOK,218,4,50,14,BS_NOTIFY
+    PUSHBUTTON      "Cancel",IDCANCEL,271,4,50,14
+    COMBOBOX        IDC_COMBO_NEWPROJDRIVE,2,46,70,50,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select project directory where project files will be saved.",IDC_STATIC,3,2,211,15
+    LTEXT           "Drive:",IDC_COMBO_NEWPROJDRIVE_TEXT,6,35,30,8
+    LISTBOX         IDC_LIST_NEWPROJDIR,74,45,102,152,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL
+    LTEXT           "Directory:",IDC_STATIC,74,35,36,8
+    LTEXT           "Path:",IDC_STATIC,6,23,20,8
+    LTEXT           "Project depth units:",IDC_STATIC1,4,207,63,8
+    COMBOBOX        IDC_NEWPROG_UNITS,71,203,50,48,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Log file detail will be",IDC_STATIC2,139,207,67,8
+    COMBOBOX        IDC_NEWPROG_LOGDETAIL,211,203,50,53,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "New directory...",IDC_NEWPROJ1_NEWDIR,13,91,58,14
+    LTEXT           "Files:",IDC_STATIC4,189,36,17,8
+    LISTBOX         IDC_LIST_NEWPROJDIRFILES,198,45,123,152,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL
+    EDITTEXT        IDC_NEWPROJ_EDIT_DIR,38,21,283,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Up directory",IDC_BUTTONUP,13,75,58,14
+END
+
+IDD_PROJ_GUIDE_DLG DIALOG 0, 0, 312, 111
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "The 'What next?'  Project Guide"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,117,94,50,14
+    LTEXT           "Explanation\nline2\n\nline4\n\nline6\n\nline8\n\nline10\n\nline12",IDC_WHATNOW_TEXT,27,7,254,81
+    ICON            IDI_PROJ_GUIDE,IDC_STATIC,4,18,21,20
+END
+
+IDD_RMSIMPORT1 DIALOGEX 0, 0, 188, 229
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Import of RMS Data - Step 1/2: File format specification"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_FILTERNAMELIST,4,29,180,159,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,78,213,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,134,213,50,14
+    LTEXT           "Specify RMS data file format:",IDC_STATIC,4,6,97,10
+    LTEXT           "Note: Use 'Filter managerment' to add more filters.",IDC_STATIC1,4,17,157,11
+    CONTROL         "ft/sec",IDC_FILTERCHOICE_UNIT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,4,207,33,10
+    CONTROL         "m/sec",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,4,217,36,10
+    LTEXT           "Units of RMS velocity values:",IDC_STATIC2,4,193,87,8
+END
+
+IDD_FILTERMANAGEMENT DIALOGEX 0, 0, 229, 275
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "File Filter Management"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_LISTOFINSTALLEDFILTERS,5,17,164,235,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "&Close",IDOK,171,238,50,14
+    PUSHBUTTON      "&Add Filter...",IDC_ADDFILTER,171,17,50,14
+    LTEXT           "Filters currently installed:",IDC_STATIC,5,6,91,8
+    LTEXT           "Filter type:",IDC_STATIC1,5,256,36,8
+    LTEXT           "Will contain\nFilter explanation",IDC_INFO_SELECTED_FILTER,44,257,135,18
+END
+
+IDD_RMS_COORDCONV2 DIALOG 0, 0, 277, 245
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Information on coordinates"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_COORD2_LIN1,73,76,40,13,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_COORD2_SP1,73,94,40,13,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_COORD2_GLBX1,163,76,73,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_COORD2_GLBY1,163,94,73,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_COORD2_LIN2,73,137,40,13,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_COORD2_SP2,73,155,40,13,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_COORD2_GLBX2,165,137,73,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_COORD2_GLBY2,166,155,73,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_COORD2_LIN3,73,197,40,13,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_COORD2_SP3,73,213,40,13,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_COORD2_GLBX3,166,196,73,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_COORD2_GLBY3,166,214,73,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,223,6,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,223,23,50,14
+    LTEXT           "The RMS velocity data file does not contain shotpoint coordinate data.\n\nEnter any three control points in both\n 1) 'internal coordinates', i.e. line and shotpoint number\n 2) global coordinates",IDC_STATIC,5,7,217,48
+    GROUPBOX        "First coordinate pair:",IDC_STATIC,14,66,243,51
+    LTEXT           "Line number:",IDC_STATIC,28,78,42,8
+    LTEXT           "Shotpoint:",IDC_STATIC,28,96,39,8
+    LTEXT           "global X:",IDC_STATIC,129,78,28,8
+    LTEXT           "global Y:",IDC_STATIC,129,98,30,8
+    GROUPBOX        "Second coordinate pair:",IDC_STATIC,14,125,243,53
+    LTEXT           "Line number:",IDC_STATIC,27,139,42,8
+    LTEXT           "Shotpoint:",IDC_STATIC,27,157,39,8
+    LTEXT           "global X:",IDC_STATIC,129,140,30,8
+    LTEXT           "global Y:",IDC_STATIC,130,157,30,8
+    GROUPBOX        "Third coordinate pair:",IDC_STATIC,13,183,244,53
+    LTEXT           "Line number:",IDC_STATIC,27,199,42,8
+    LTEXT           "Shotpoint:",IDC_STATIC,27,215,39,8
+    LTEXT           "global X:",IDC_STATIC,130,198,30,8
+    LTEXT           "global Y:",IDC_STATIC,130,216,30,8
+END
+
+IDD_PROGRESS DIALOG 0, 0, 167, 62
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Importing data...(or similar text here)"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "-general action description",IDC_RMSIMPORT_GENDESCR,5,4,143,17
+    LTEXT           "Phase:",IDC_STATIC,4,25,30,8
+    LTEXT           "--describe current action here--",IDC_RMSIMPORT_CURRENT,31,25,132,8
+    LTEXT           "-more description-",IDC_RMSIMPORT_CURRENT2,31,35,132,8
+    CONTROL         "Progress1",IDC_RMSIMPORT_PROGBAR,"msctls_progress32",WS_BORDER,0,45,167,14
+END
+
+IDD_WELLHORIZ_TIMEGRID_MAP DIALOGEX 0, 0, 477, 219
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Well horizon -> Time grid horizon"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "C&ontinue",IDOK,424,185,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,424,204,50,14
+    LISTBOX         IDC_WELLTIME_WELLLIST,3,17,143,122,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_WELLTIME_GRIDLIST,150,17,146,122,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Assign",IDC_WELLTIME_ASSIGN,424,67,50,14
+    LISTBOX         IDC_WELLTIME_ASSIGNLIST,4,157,202,55,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Undo assignment",IDC_WELLTIME_DELETEENTRY,210,196,83,14
+    LTEXT           "Well horizon:",IDC_STATIC,3,4,76,8
+    LTEXT           "Time grid:",IDC_STATIC2,177,3,78,8
+    LTEXT           "Assignments:",IDC_STATIC1,5,145,119,8
+    LTEXT           "longish help goes here",IDC_WELLTIME_HELPTEXT,212,145,175,49
+    CONTROL         "Use fault information",IDC_WELLTIME_USEFAULTS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,301,3,81,10
+    LISTBOX         IDC_WELLTIME_FAULTGRIDLIST,301,17,119,122,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_MAPPING_ERROR DIALOGEX 0, 0, 266, 92
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Mapping errors"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,74,50,14
+    LTEXT           "Discrepancies detected in grid assignments:\n(see manual for further details):",IDC_STATIC,3,3,189,19
+    LISTBOX         IDC_MAPERR_LIST,5,23,199,66,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_NEWPROJ_2 DIALOGEX 0, 0, 339, 204
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "New project, Step 2 of 3: Database specification"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,227,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,280,6,50,14
+    COMBOBOX        IDC_COMBO_NEWPROJDRIVE2,30,61,54,47,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Drive:",IDC_COMBO_NEWPROJDRIVE2_TEXT,35,49,30,8
+    LISTBOX         IDC_LIST_NEWPROJDIR2,94,57,112,140,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Directory:",IDC_STATIC3,93,46,36,8
+    LTEXT           "Grid file directory:",IDC_STATIC1,4,5,60,8
+    LTEXT           "Path:",IDC_STATIC2,3,30,20,8
+    LISTBOX         IDC_NEWPROJ_GRIDNAMESPREVIEW,221,57,109,140,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Grid files:",IDC_STATIC4,221,46,57,8
+    LTEXT           "Grid format:",IDC_NEWPROJ_GRIDFILETYPEBLURB,5,129,48,8
+    COMBOBOX        IDC_NEWPROJ_GRIDFILETYPE,5,142,79,67,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_NEWPROJ2_EDITDIR,23,27,307,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Up directory",IDC_BUTTON1,30,81,54,14
+END
+
+IDD_MODEL_CHOOSELAYER DIALOGEX 0, 0, 220, 190
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Create / Modify time-depth model"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_CHOOSE_MODELLIST,9,18,137,163,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Change model...",IDOK,154,6,65,14
+    PUSHBUTTON      "Cancel",IDCANCEL,154,23,65,14
+    LTEXT           "Select layer:",IDC_STATIC,9,6,46,8
+    LTEXT           "Note:\nYou need to work on each layer in sequence.",IDC_STATIC1,155,44,64,32
+END
+
+IDD_MODELCHOICE DIALOG 0, 0, 144, 241
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Function Browser Selection"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,74,224,66,14
+    GROUPBOX        "Top left window",IDC_STATIC,3,27,137,41
+    COMBOBOX        IDC_MODELCHOICE_FUNC1,5,37,129,58,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Statistics...",IDC_MODELCHOICE_RESIDUALS,3,205,66,14
+    CONTROL         "Linear distance weighting",IDC_MODELCHOICE_LIN1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,56,125,10
+    GROUPBOX        "Top right window",IDC_STATIC,3,71,137,41
+    COMBOBOX        IDC_MODELCHOICE_FUNC2,5,81,129,59,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Linear distance weighting",IDC_MODELCHOICE_LIN2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,98,125,10
+    GROUPBOX        "Bottom left window",IDC_STATIC,3,115,137,41
+    COMBOBOX        IDC_MODELCHOICE_FUNC3,5,125,129,59,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Linear distance weighting",IDC_MODELCHOICE_LIN3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,142,125,10
+    GROUPBOX        "Bottom right window",IDC_STATIC,3,159,137,41
+    COMBOBOX        IDC_MODELCHOICE_FUNC4,5,169,129,56,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Linear distance weighting",IDC_MODELCHOICE_LIN4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,186,125,10
+    LTEXT           "Note: To select a model, click on the corresponding graph.",IDC_MODELCHOICE_STATIC,3,3,137,24
+    PUSHBUTTON      "Other View",IDC_MODELCHOICE_MODEBTN,74,205,66,14
+    PUSHBUTTON      "&Minimize dialog",IDC_MODELCHOICE_HIDEDLG,3,224,66,14
+END
+
+IDD_EDITWELL DIALOGEX 0, 0, 185, 116
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit well data point"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_EDITWELL_X,37,33,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITWELL_Y,37,52,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITWELL_DEP,37,72,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITWELL_TIME,37,90,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITWELL_WEIGHT,122,91,40,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,128,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,128,24,50,14
+    RTEXT           "X:",IDC_STATIC,7,35,25,8
+    RTEXT           "Y:",IDC_STATIC,7,54,25,8
+    RTEXT           "Depth:",IDC_STATIC,7,73,25,8
+    RTEXT           "Time:",IDC_STATIC,7,92,25,8
+    RTEXT           "Weight:",IDC_STATIC,92,94,25,8
+    CONTROL         "Deselect this point",IDC_EDITWELL_EXCL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,89,78,76,10
+    GROUPBOX        "Regression",IDC_STATIC,82,67,97,41
+    GROUPBOX        "Imported data:",IDC_STATIC,3,18,77,90
+    LTEXT           "-- well name, layer name go here --",IDC_EDITWELL_WELLANDLAYER,5,4,116,8
+    LTEXT           "",IDC_EDITWELL_NOTE,85,47,92,16
+END
+
+IDD_CHANGE_WEIGHTS DIALOG 0, 0, 223, 129
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Change weights of wells"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_CHGWEIGHT_METHOD,66,74,58,47,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CHGWEIGHT_X,28,25,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CHGWEIGHT_Y,28,44,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CHGWEIGHT_RAD,105,25,40,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,166,6,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,166,23,50,14
+    GROUPBOX        "Region of interest (where weight equals 1.0)",IDC_STATIC,2,3,159,59
+    RTEXT           "X:",IDC_STATIC,5,28,17,8
+    RTEXT           "Y:",IDC_STATIC,5,47,17,8
+    LTEXT           "Decrease weight",IDC_STATIC,5,75,60,8
+    GROUPBOX        "Method",IDC_STATIC,3,66,127,60
+    LTEXT           "Center:",IDC_STATIC,6,15,30,8
+    LTEXT           "Size:",IDC_STATIC,74,16,30,8
+    RTEXT           "Radius R:",IDC_STATIC,71,28,31,8
+    PUSHBUTTON      "&Set all to 1.0",IDC_CHGWEIGHT_DEFAULTS,166,47,50,14
+    LTEXT           "The region of interest is a circle of radius R.",IDC_STATIC,74,42,82,18
+    LTEXT           "as a function of the distance from the region of interest.",IDC_STATIC,5,105,119,16
+    LTEXT           "down to",IDC_STATIC,5,91,29,8
+    RTEXT           "xx",IDC_CHGWGT_DOWNTONUMBER,41,91,16,8
+    GROUPBOX        "Preview",IDC_STATIC,136,66,80,60
+    CONTROL         "",IDC_CHGWGT_PREVIEW,"Static",SS_WHITERECT,139,75,74,48
+    SCROLLBAR       IDC_CHGWGT_DOWNTOSCROLL,66,90,57,11
+END
+
+IDD_NUMERIC_RESIDUES DIALOG 0, 0, 285, 196
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Model Statistics"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Top left window",IDC_NUMRES_FRAME1,3,1,109,93
+    LISTBOX         IDC_NUMRES_LIST1,7,39,102,53,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Top right window",IDC_NUMRES_FRAME2,118,1,109,93
+    LISTBOX         IDC_NUMRES_LIST2,122,39,102,53,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Bottom left window",IDC_NUMRES_FRAME3,3,100,109,93
+    LISTBOX         IDC_NUMRES_LIST3,7,138,102,53,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Bottom right window",IDC_NUMRES_FRAME4,118,100,109,93
+    LISTBOX         IDC_NUMRES_LIST4,122,138,102,53,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,233,5,50,14
+    LTEXT           "the params",IDC_NUMRES_PAR1,8,10,101,28
+    LTEXT           "the params",IDC_NUMRES_PAR2,121,10,101,28
+    LTEXT           "the params",IDC_NUMRES_PAR3,7,109,101,28
+    LTEXT           "the params",IDC_NUMRES_PAR4,123,109,101,28
+END
+
+IDD_RMSIMPORT_2DSUPPFILE DIALOGEX 0, 0, 234, 206
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Specification of supplementary file"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_RMS2DSUPP_GRIDLIST,0,48,229,135,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,123,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,179,190,50,14
+    LTEXT           "The file filter that you specified refers to RMS velocity files without X/Y coordinates. This data will be read from a grid database file.",IDC_STATIC,3,5,185,26
+    LTEXT           "Select corresponding file:",IDC_STATIC,4,36,128,8
+END
+
+IDD_GRID_ARITHMETIC DIALOGEX 0, 0, 275, 305
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Grid arithmetic (dual or single grid and constant operations)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_ARITH_INPUT1,7,26,261,94,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_ARITH_EDIT1,155,8,40,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_ARITH_OPERATOR,67,125,52,58,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_ARITH_INPUT2,7,160,261,94,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_ARITH_EDIT2,154,144,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ARITH_RESULTNAME,7,278,189,14,ES_AUTOHSCROLL
+    CONTROL         "Grid:",IDC_ARITH_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,13,9,28,10
+    CONTROL         "constant:",IDC_ARITH_RADIO2,"Button",BS_AUTORADIOBUTTON,59,10,44,10
+    CONTROL         "Grid:",IDC_ARITH_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,13,144,28,10
+    CONTROL         "constant:",IDC_ARITH_RADIO4,"Button",BS_AUTORADIOBUTTON,69,144,46,10
+    DEFPUSHBUTTON   "OK",IDOK,218,264,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,218,284,50,14
+    LTEXT           "Output grid name:",IDC_STATIC,7,262,67,8
+END
+
+IDD_GRIDIMPORT DIALOGEX 0, 0, 259, 295
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Import grids"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LISTBOX         IDC_GRIDIMP_GRIDLIST,4,26,248,147,WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,202,260,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,202,279,50,14
+    LTEXT           "Grid category:",IDC_STATIC1,5,260,46,8
+    COMBOBOX        IDC_GRIDIMP_GRIDTYPE,5,271,74,55,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Identify grids:",IDC_STATIC,3,15,70,8
+    LISTBOX         IDC_GRIDIMP_FAULTGRIDLIST,0,183,252,73,WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,WS_EX_CLIENTEDGE
+    LTEXT           "Fault Polygons:",IDC_STATIC2,5,172,161,8
+    LTEXT           "Directory: ",IDC_STATICDIR,3,5,99,8
+END
+
+IDD_SMOOTHGRID_OPTIONS DIALOGEX 0, 0, 330, 219
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Options for spatial filtering"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Low pass filter threshold:",IDC_STATIC,7,6,83,8
+    SCROLLBAR       IDC_SMOOTHOPT_SCRL,20,35,111,11
+    LTEXT           "75%",IDC_SMOOTHOPT_0,6,37,14,8
+    RTEXT           "99%",IDC_SMOOTHOPT_95,135,36,13,8
+    DEFPUSHBUTTON   "OK",IDOK,276,187,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,276,204,50,14
+    GROUPBOX        "Fourier components of the grid:",IDC_STATIC1,5,52,264,144
+    LTEXT           "",IDC_SMOOTHOPT_PREVIEW,8,63,259,128
+    RTEXT           "Static",IDC_SMOOTHOPT_XMAX,78,202,58,8
+    LTEXT           "Static",IDC_SMOOTHOPT_YMAX,276,55,50,16
+    LTEXT           "0, 0",IDC_STATIC2,3,202,11,8
+    LTEXT           "(High value = low threshold)",IDC_SMOOTHOPT_HOWTO,7,23,120,8
+    EDITTEXT        IDC_SMOOTHOPT_FILTVAL,94,3,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Update",IDC_SMOOTHOPT_UPDATE,276,101,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Save file",IDC_BUTTON2,276,83,50,14,NOT WS_VISIBLE
+END
+
+IDD_HOWTOTIE DIALOG 0, 0, 220, 69
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Tying options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,163,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,163,24,50,14
+    LTEXT           "Please specify whether and how the gradients of the correction grid(s) should be normalized (see manual):",IDC_STATIC,7,7,149,24
+    CONTROL         "Normalise extrapolation when tying",IDC_HOWTOTIE_NORMGRAD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,35,138,10
+    LTEXT           "(number)",IDC_HOWTOTIE_NORMGRAD_SCROLLBUDDY,77,51,28,8
+    LTEXT           "Normalisation power:",IDC_HOWTOTIE_NORMGRAD_SCROLLBLURP,7,51,69,8
+    SCROLLBAR       IDC_HOWTOTIE_NORMGRAD_SCROLL,141,51,50,11
+    LTEXT           "weak",IDC_STATIC,119,51,17,8
+    LTEXT           "strong",IDC_STATIC,193,51,20,8
+END
+
+IDD_SMOOTH_MOVINGWND DIALOGEX 0, 0, 229, 99
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Matrix filtering operator"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,172,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,172,24,50,14
+    CONTROL         "Slider1",IDC_WNDSMOOTH_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,29,20,100,15
+    LTEXT           "Select filter operator window-side length:",IDC_STATIC,7,7,141,8
+    LTEXT           "Min",IDC_STATIC,7,20,17,8
+    LTEXT           "Max",IDC_STATIC,133,20,17,8
+    LTEXT           "Operator length:",IDC_STATIC,7,38,53,8
+    LTEXT           "size goes here!",IDC_WNDSMOOTH_SIZEPREVIEW,63,38,47,8
+    CONTROL         "Save the filtered high frequency component to a separate grid",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,64,210,10
+    CONTROL         "Make output grid primary if source grid is primary",IDC_PRIMARY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,82,166,10
+END
+
+IDD_GRIDDATABASE_LIST DIALOGEX 0, 0, 462, 185
+STYLE DS_SETFONT | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Directory, listing  grid and data files and stats."
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Grid and data files within the project",IDC_GRIDDATABASE_RADIO1,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,15,15,139,10
+    CONTROL         "Grid and data files outside the project",IDC_GRIDDATABASE_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON,166,15,158,10
+    DEFPUSHBUTTON   "OK",IDOK,395,15,50,14
+    CONTROL         "List1",IDC_GDB_TABLE,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,7,32,448,145
+END
+
+IDD_SECONDARYDEPTHCONV_OPT DIALOGEX 0, 0, 265, 136
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options for VelocityVolume interpolation"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "linear",IDC_DCOPT_LINEAR,"Button",BS_AUTORADIOBUTTON | WS_GROUP,13,34,97,10
+    CONTROL         "non-linear (min. 4 horizons)",IDC_DCOPT_CUBIC,"Button",BS_AUTORADIOBUTTON,13,44,136,10
+    CONTROL         "time constant interval velocity",IDC_DCOPT_CONST,"Button",BS_AUTORADIOBUTTON,13,54,132,10
+    EDITTEXT        IDC_DCOPT_DECREASEBY,14,98,19,14,ES_AUTOHSCROLL | WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,208,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,208,24,50,14
+    GROUPBOX        "Interpolation",IDC_STATIC,7,7,150,64
+    LTEXT           "Choose function to interpolate interval velocities between primary time grids:",IDC_STATIC,13,16,137,16
+    GROUPBOX        "Extrapolation of linear curves",IDC_STATIC,7,72,150,46
+    LTEXT           "percent of the last gradient.",IDC_STATIC,37,100,116,8
+    GROUPBOX        "Sketch",IDC_STATIC,162,48,96,70
+    CONTROL         "",IDC_DCOPT_PREVIEW,"Static",SS_WHITERECT,166,58,88,56
+    LTEXT           "Velocity extrapolation quotient:",IDC_STATIC,14,88,138,8
+    CONTROL         "Rebuild average velocity NULL values",IDC_DCOPT_REBUILD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,119,181,10
+END
+
+IDD_DEPTHCONV_TIMESLICE DIALOGEX 0, 0, 153, 50
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Define time slice"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_DCTIMESLICE_VALUE,7,20,40,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,96,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,96,24,50,14
+    LTEXT           "Enter value of the time slice:",IDC_STATIC,7,7,83,8
+    LTEXT           "msec",IDC_STATIC,51,23,18,8
+END
+
+IDD_RESULTS_RMSTESTIMPORT DIALOG 0, 0, 352, 126
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "RMS Test import results"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,295,7,50,14
+    CONTROL         "List1",IDC_TESTIMPORT_LIST,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,7,14,278,105
+    LTEXT           "First few items from the RMS file you tried to import:",IDC_STATIC,7,7,150,8
+    LTEXT           "long note about the coordinates",IDC_TESTIMPORT_COORDNOTE,297,61,48,58
+END
+
+IDD_REBUILD_SETTINGS DIALOGEX 0, 0, 161, 76
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rebuild grids"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,104,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,104,24,50,14
+    LTEXT           "Maximum interpolation interval",IDC_STATIC,7,7,91,8
+    EDITTEXT        IDC_REBUILDSETTINGS_NUMBER,7,18,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "nodes",IDC_STATIC,54,21,20,8
+    CONTROL         "Interpolate entire grid",IDC_REBUILDSETTINGS_DOALL,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,42,101,10
+    CONTROL         "Set rebuilt grid as primary",IDC_PRIMARY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,59,97,10
+END
+
+IDD_LOGFILEVIEW DIALOGEX 0, 0, 481, 209
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Project log"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,429,188,45,14
+    EDITTEXT        IDC_PROJECTLOG_TEXT,7,7,467,178,ES_MULTILINE | ES_AUTOHSCROLL | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_DESIGNATE_GRID DIALOGEX 0, 0, 255, 247
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Designate grid for depth conversion"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,143,226,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,198,226,50,14
+    LISTBOX         IDC_DESGRID_LIST,7,42,241,155,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Choose a grid for designation:\n\nRedesignation of time, depth or velocity grid as appropriate.",IDC_STATIC,7,7,159,32
+    COMBOBOX        IDC_DESGRID_HORS,7,228,80,64,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Designate to horizon:",IDC_STATIC1,7,203,80,21
+END
+
+IDD_TIMECONVERT DIALOGEX 0, 0, 281, 170
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options for time conversion"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_TCD_X,24,17,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TCD_Y,24,35,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TCD_D,94,17,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TCD_NAME,94,36,40,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Time convert point",IDC_TCD_TIMECONV,143,18,67,14
+    PUSHBUTTON      "&Complete",IDOK,224,149,50,14
+    GROUPBOX        "New point",IDC_STATIC,7,7,209,48
+    LTEXT           "x:",IDC_STATIC,13,19,8,8
+    LTEXT           "y:",IDC_STATIC,13,37,8,8
+    LTEXT           "depth:",IDC_STATIC,71,19,20,8
+    LTEXT           "name:\n(opt.)",IDC_STATIC,72,35,20,16
+    PUSHBUTTON      "&Read from file...",IDC_TCD_READFROMFILE,143,36,67,14
+    PUSHBUTTON      "&Export list...",IDC_TCD_WRITETOFILE,224,94,50,14
+    PUSHBUTTON      "&Delete",IDC_TCD_DELETE,224,58,50,14
+    LISTBOX         IDC_TCD_LIST,7,58,209,105,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Delete &all",IDC_TCD_DELETEALL,224,76,50,14
+END
+
+IDD_WELLFORECAST DIALOGEX 0, 0, 421, 280
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Well forecast"
+FONT 6, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_WELLFC_X,21,16,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WELLFC_Y,107,16,60,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Forecast!",IDOK,309,7,50,14
+    PUSHBUTTON      "Complete",IDCANCEL,364,24,50,14
+    LISTBOX         IDC_WELLFC_LIST,14,53,168,195,LBS_MULTIPLESEL | LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    GROUPBOX        "Well location",IDC_STATIC,7,7,165,28
+    LTEXT           "x:",IDC_STATIC,13,18,8,8
+    LTEXT           "y:",IDC_STATIC,99,18,8,8
+    GROUPBOX        "Grids to be interrogated:",IDC_STATICL,7,42,179,211
+    PUSHBUTTON      "&Select all primary time and depth grids",IDC_WELLFC_STD,7,256,159,14
+    GROUPBOX        "Results",IDC_STATICR,193,42,221,208
+    EDITTEXT        IDC_WELLFC_RESULT,198,51,208,194,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "Save data",IDC_SAVE,364,7,50,14
+END
+
+IDD_TIMEIMPORT_WHATTOTIE DIALOGEX 0, 0, 245, 137
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Tying grids"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Tie grids to well data",IDC_TIE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,8,115,10
+    CONTROL         "make no compensation",IDC_AFTERTIE1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,13,84,160,10
+    CONTROL         "set deeper grid to value of shallower grid",IDC_AFTERTIE2,
+                    "Button",BS_AUTORADIOBUTTON,13,94,160,10
+    CONTROL         "set shallower grid to value of deeper grid",IDC_AFTERTIE3,
+                    "Button",BS_AUTORADIOBUTTON,13,104,160,10
+    CONTROL         "set both grids to the average value",IDC_AFTERTIE4,
+                    "Button",BS_AUTORADIOBUTTON,13,114,160,10
+    DEFPUSHBUTTON   "OK",IDOK,188,98,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,188,116,50,14
+    GROUPBOX        "Preserve zero isochronochores",IDC_STATIC_RETAINFRAME,7,45,176,85
+    LTEXT           "After tying grids to well data, areas of zero time thickness will be preserved for all grids:",IDC_STATIC_RETAINBLURB,13,57,167,24
+    CONTROL         "&Normalize extrapolation when tying",IDC_WELLTIME_NORMGRAD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,20,153,10
+    LTEXT           "(number)",IDC_WELLTIME_NORMGRAD_SCROLLBUDDY,32,33,28,8
+    LTEXT           "Power:",IDC_WELLTIME_NORMGRAD_SCROLLBLURP,7,33,24,8
+    SCROLLBAR       IDC_WELLTIME_NORMGRAD_SCROLL,85,33,69,11
+    LTEXT           "strong",IDC_STATIC,156,33,20,8
+    LTEXT           "weak",IDC_STATIC,66,34,17,8
+END
+
+IDD_FINETUNE_CUSTOMFIT_PAGE DIALOG 0, 0, 325, 102
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Custom fit"
+FONT 8, "MS Sans Serif"
+BEGIN
+    RTEXT           "Fit Vo:",IDC_FINETUNE_CUSTOMFITANAME,7,14,43,8
+    RTEXT           "Fit K:",IDC_FINETUNE_CUSTOMFITBNAME,7,29,43,8
+    EDITTEXT        IDC_FINETUNE_CUSTOMFITA,57,11,95,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FINETUNE_CUSTOMFITB,57,26,95,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,270,2,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,270,22,54,14
+    PUSHBUTTON      "&Minimize",IDC_FINETUNE_HIDEME,270,82,54,14
+    PUSHBUTTON      "Switch &view",IDC_FINETUNE_SWITCHVIEWMODE,270,42,54,14
+    LTEXT           "To use custom fit parameters, enter them above and push ""Display"".",IDC_FINETUNE_CUSTOMFITBLURB,8,57,244,9
+    GROUPBOX        "Custom parameters",IDC_CUSTOMFITFRAME,2,2,258,71
+    CONTROL         "Use custom parameters",IDC_FINETUNE_USECUSTOMFIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,43,98,10
+    PUSHBUTTON      "&Display",IDC_FINETUNE_DISPLAYCUSTOMFIT,170,18,50,14
+END
+
+IDD_FINETUNE_MISC_PAGE DIALOGEX 0, 0, 325, 102
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Misc/Edit options"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Draw options",IDC_STATIC,151,56,113,40
+    CONTROL         "Show &well labels",IDC_FINETUNE_SHOWWELLLABELS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,161,67,68,10
+    CONTROL         "Show &grid lines",IDC_FINETUNE_SHOWGRID,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,161,81,67,10
+    DEFPUSHBUTTON   "OK",IDOK,270,2,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,270,22,54,14
+    PUSHBUTTON      "&Minimize",IDC_FINETUNE_HIDEME,270,82,54,14
+    PUSHBUTTON      "Switch &view",IDC_FINETUNE_SWITCHVIEWMODE,270,42,54,14
+    LISTBOX         IDC_CHOOSEEDIT_LIST,9,28,131,60,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select well:",IDC_STATIC,8,12,57,8
+    GROUPBOX        "Edit well database",IDC_STATIC,2,2,144,92
+    PUSHBUTTON      "&Edit...",IDC_FINETUNE_DOEDIT,91,11,50,14
+    GROUPBOX        "Depth conversion options",IDC_STATIC,150,14,113,35
+    CONTROL         "&Keep residual grid",IDC_FINETUNE_KEEPRESIDUALS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,161,26,81,10
+    CONTROL         "&Rebuild missing depths",IDC_REBUILD_DEPTH,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,161,37,88,10
+END
+
+IDD_FINETUNE_QUICKHELP1_PAGE DIALOGEX 0, 0, 325, 102
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Quick help: Fitting"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "To include/exclude wells from the computation:",IDC_STATIC,6,2,156,8
+    LTEXT           "+ Move the slider to exclude a certain percentage of points\n+ Click on well in plot with left mouse button to include/exclude it\n+ Click ""Add back all points"" to undo any changes during this procedure",IDC_STATIC,13,13,232,24
+    LTEXT           "To edit the well data:",IDC_STATIC,2,40,189,8
+    LTEXT           "+ Click on well with right mouse button to edit data directly\n   Or use the combination Ctrl+Left mouse button.",IDC_STATIC,13,51,193,16
+    LTEXT           "To change the weight of wells:",IDC_STATIC,2,70,131,8
+    LTEXT           "+ Choose ""Weighting"" and select a weighting model\n+ Click on well with right mouse button to edit single weights",IDC_STATIC,13,83,200,16
+    DEFPUSHBUTTON   "OK",IDOK,270,2,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,270,22,54,14
+    PUSHBUTTON      "&Minimize",IDC_FINETUNE_HIDEME,270,82,54,14
+    PUSHBUTTON      "Switch &view",IDC_FINETUNE_SWITCHVIEWMODE,270,42,54,14
+END
+
+IDD_FINETUNE_QUICKHELP2_PAGE DIALOGEX 0, 0, 325, 102
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Quick help: Contouring"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "To work with the contour plot:",IDC_STATIC,9,2,104,11
+    LTEXT           "- The right mouse button evokes the ""Contour settings"" dialog",IDC_STATIC,11,20,233,16
+    LTEXT           "Extrapolation normalisation:",IDC_STATIC,8,61,106,11
+    LTEXT           "- This feature can be disabled completely; its power can be varied from\n   10% (weak) to 100% (strong)",IDC_STATIC,12,78,236,16
+    DEFPUSHBUTTON   "OK",IDOK,270,2,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,270,22,54,14
+    PUSHBUTTON      "&Minimize",IDC_FINETUNE_HIDEME,270,82,54,14
+    PUSHBUTTON      "Switch &view",IDC_FINETUNE_SWITCHVIEWMODE,270,42,54,14
+    LTEXT           "- The right mouse button when over a well evokes the 'Edit  Well' dialogue.",IDC_STATIC,11,40,241,15
+END
+
+IDD_FINETUNE_WEIGHTS_PAGE DIALOGEX 0, 0, 325, 102
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Weighting"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "&Apply",IDOK,270,2,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,270,22,54,14
+    PUSHBUTTON      "&Minimize",IDC_FINETUNE_HIDEME,270,82,54,14
+    PUSHBUTTON      "Switch &view",IDC_FINETUNE_SWITCHVIEWMODE,270,42,54,14
+    COMBOBOX        IDC_CHGWEIGHT_METHOD2,67,53,58,47,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CHGWEIGHT_X,28,22,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CHGWEIGHT_Y,98,21,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CHGWEIGHT_RAD,194,22,40,13,ES_AUTOHSCROLL
+    GROUPBOX        "Region of interest (circle where all wells are weighted with 1.0)",IDC_STATIC,2,2,254,37
+    RTEXT           "X:",IDC_STATIC,5,25,17,8
+    RTEXT           "Y:",IDC_STATIC,75,24,17,8
+    LTEXT           "Decrease weight",IDC_STATIC,8,54,56,8
+    GROUPBOX        "Outside region of intererst",IDC_STATIC,2,44,127,56
+    LTEXT           "Center:",IDC_STATIC,6,12,30,8
+    LTEXT           "Size:",IDC_STATIC,163,13,30,8
+    RTEXT           "Radius R:",IDC_STATIC,160,25,31,8
+    PUSHBUTTON      "&Set all to 1.0",IDC_CHGWEIGHT_DEFAULTS,270,62,54,14
+    LTEXT           "as a function of the distance from the region of interest.",IDC_STATIC,8,80,119,16
+    LTEXT           "down to",IDC_STATIC,8,68,29,8
+    RTEXT           "xx",IDC_CHGWGT_DOWNTONUMBER,42,68,16,8
+    GROUPBOX        "Preview",IDC_STATIC,174,43,81,57
+    CONTROL         "",IDC_CHGWGT_PREVIEW,"Static",SS_WHITERECT,177,53,74,44
+    SCROLLBAR       IDC_CHGWGT_DOWNTOSCROLL,67,67,57,11
+END
+
+IDD_FINETUNE_FIT_PAGE DIALOGEX 0, 0, 325, 102
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Function fit"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,270,2,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,270,22,54,14
+    SCROLLBAR       IDC_FINETUNE_EXCLSCRL,142,34,119,11
+    PUSHBUTTON      "&Add back all wells",IDC_FINETUNE_ADDBACKALL,142,47,117,18
+    GROUPBOX        "Model function",IDC_STATIC,2,2,131,65,WS_GROUP
+    RTEXT           "Slope a=",IDC_FINETUNE_PARNAME1,4,33,43,8
+    LTEXT           "value of a",IDC_FINETUNE_PARVAL1,56,33,70,8
+    LTEXT           "-- f(x) = ax+b -- or so",IDC_FINETUNE_FUNCNAME,6,10,109,8
+    GROUPBOX        "Exclude points from regression",IDC_STATIC,136,2,127,65
+    RTEXT           "Intercept b=",IDC_FINETUNE_PARNAME2,4,45,43,8
+    LTEXT           "value of b",IDC_FINETUNE_PARVAL2,56,45,70,8
+    LTEXT           "0%",IDC_STATIC,155,24,14,8
+    LTEXT           "50%",IDC_STATIC,236,24,17,8
+    CTEXT           "current value",IDC_FINETUNE_EXCLTEXT,163,24,72,8
+    CTEXT           "=",IDC_FINETUNE_TEXT2,48,33,8,8
+    CTEXT           "=",IDC_FINETUNE_TEXT3,48,45,8,8
+    RTEXT           "avg residual",IDC_FINETUNE_TEXT1,5,57,42,8
+    LTEXT           "sigma",IDC_FINETUNE_FITVAL,56,57,70,8
+    CTEXT           "=",IDC_FINETUNE_TEXT4,48,57,8,8
+    LTEXT           "-- linear or quadratic --",IDC_FINETUNE_FUNCDISTWGT,6,20,109,8
+    LTEXT           "Percentage of wells to be excluded:",IDC_STATIC,143,12,113,8
+    ICON            IDI_STOPSIGN,IDC_FINETUNE_SLOPEWARN,3,70,21,20
+    LTEXT           "WARNING: slope<0!",IDC_FINETUNE_SLOPEWARN2,32,73,103,8
+    PUSHBUTTON      "&Minimize",IDC_FINETUNE_HIDEME,270,82,54,14
+    PUSHBUTTON      "Switch &view",IDC_FINETUNE_SWITCHVIEWMODE,270,42,54,14
+    PUSHBUTTON      "&Other model",IDC_FINETUNE_OTHERMODEL,270,62,54,14,BS_CENTER | BS_MULTILINE
+    CONTROL         "grid limits",IDC_GRIDLIMITS,"Button",BS_AUTORADIOBUTTON,213,71,44,10
+    CONTROL         "well limits",IDC_WELLLIMITS,"Button",BS_AUTORADIOBUTTON,213,85,45,10
+    LTEXT           "Map area:",IDC_STATIC,174,72,33,8
+END
+
+IDD_WARN_OTHERMODEL DIALOG 0, 0, 264, 108
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Warning"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Yes",IDOK,31,87,50,14
+    DEFPUSHBUTTON   "No",IDCANCEL,90,87,50,14
+    LTEXT           "Do you really want to use a completely different model for this horizon? All fine tuning (e.g., inclusion/exclusion of wells) will be lost in this instance.\n\nFurthermore, if you uncheck the box below, all individual well weights will be reset to 1.",IDC_STATIC,31,7,225,48
+    CONTROL         "Retain the individual well weights",IDC_WARNOTHERMODEL_RETAINWEIGHTS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,31,61,116,10
+    ICON            IDI_STOPSIGN,IDC_STATIC,7,7,21,20
+    LTEXT           "Do you want to proceed?",IDC_STATIC,31,76,226,10
+END
+
+IDD_FINETUNE_RESIDUALS_PAGE DIALOGEX 0, 0, 325, 102
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Function Edit"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,270,2,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,270,22,54,14
+    PUSHBUTTON      "&Minimize",IDC_FINETUNE_HIDEME,270,82,54,14
+    PUSHBUTTON      "Switch &view",IDC_FINETUNE_SWITCHVIEWMODE,270,42,54,14
+    CONTROL         "Function applied with z-component only",IDC_RESIDUALS_INZONLY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,14,164,10
+    CONTROL         "Gradient normalisation",IDC_FINETUNE_NORMGRAD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,79,88,10
+    SCROLLBAR       IDC_FINETUNE_NORMGRAD_SCROLL,178,77,52,11
+    GROUPBOX        "Gridding options",IDC_STATIC,3,66,253,32
+    LTEXT           "(number)",IDC_RESIDUAL_NORMGRAD_SCROLLBUDDY,125,79,28,8
+    LTEXT           "Power:",IDC_FINETUNE_NORMGRAD_SCROLLBLURP,102,79,22,8
+    LTEXT           "strong",IDC_STATIC,232,79,20,8
+    LTEXT           "weak",IDC_STATIC,158,79,17,8
+    GROUPBOX        "Gridding input",IDC_STATIC,2,3,256,64
+    CONTROL         "Exclude the deselected wells",IDC_RESIDUALS_TOTALDESELECTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,25,158,10
+    CONTROL         "Additive",IDC_RESIDUAL_ADDRESID,"Button",BS_AUTORADIOBUTTON | WS_GROUP,154,53,41,10
+    CONTROL         "Optimized",IDC_RESIDUAL_HYBRID,"Button",BS_AUTORADIOBUTTON,201,53,47,10
+    CONTROL         "Multiplicative",IDC_RESIDUAL_MULTRESID,"Button",BS_AUTORADIOBUTTON,91,53,55,10
+    LTEXT           "Spatial component:",IDC_STATIC,6,53,73,8
+    LTEXT           "** Warning about how bad everything will tie ** (see GrayStuff())",IDC_RESIDUAL_NOTIEWARN,8,37,236,16
+END
+
+IDD_RAYTRACE_PROPS DIALOGEX 0, 0, 206, 218
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Ray tracing properties"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Save lateral displacement grids",IDC_RAYTRACE_PROPS_XYOFFSET,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,28,36,133,10
+    CONTROL         "Save depth difference grids",IDC_RAYTRACE_PROPS_DEPTHDIFF,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,28,63,133,10
+    CONTROL         "Save angular displacement grids",IDC_RAYTRACE_PROPS_ANGLEGRIDS,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,28,49,133,11
+    EDITTEXT        IDC_RAYTRACE_PROPS_LIMITANGLE,149,158,26,13,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,94,197,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,149,197,50,14
+    GROUPBOX        "Raytracing grids",IDC_STATIC,7,7,192,77
+    GROUPBOX        "Additional controls",IDC_STATIC,7,146,192,36
+    LTEXT           "Stop ray when angle is greater than:",IDC_RAYTRACE_PROPS_STOPTEXT1,20,160,121,12
+    CONTROL         "Save azimuth offset grids",IDC_RAYTRACE_PROPS_AZIMUTH,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,28,22,133,11
+    CONTROL         "Slider1",IDC_RAYTRACE_PROPS_REGRIDBINSIZE,
+                    "msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,81,101,100,19
+    GROUPBOX        "Regridding",IDC_STATIC,7,89,192,50
+    LTEXT           "Cell capture ratio",IDC_STATIC,19,103,57,13
+    LTEXT           "100%",IDC_STATIC,79,123,20,10
+    LTEXT           "250%",IDC_STATIC,157,124,21,9
+    CTEXT           "100%",IDC_RAYTRACE_PROPS_RATIOVALUE,27,120,31,11,SS_SUNKEN
+END
+
+IDD_GRID_OVERWRITENULL DIALOGEX 0, 0, 247, 206
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Overwrite NULL"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,190,167,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,190,185,50,14
+    LISTBOX         IDC_OVERWRITE_LIST,7,18,174,158,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select grid:",IDC_STATIC,7,7,151,9
+    LTEXT           "Overwrite NULL values with: ",IDC_STATIC2,7,188,94,11
+    EDITTEXT        IDC_OVERWRITENULL_VALUE,103,187,56,12,ES_AUTOHSCROLL
+END
+
+IDD_GRIDEXPORT DIALOGEX 0, 0, 234, 245
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose grids to export"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,117,224,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,176,224,50,14
+    LISTBOX         IDC_CHOOSEEXPORT_LIST,7,20,219,186,LBS_MULTIPLESEL | LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Choose grids to be exported to the project folder:",IDC_STATIC,7,7,164,8
+    LTEXT           "Export as:",IDC_STATIC1,7,212,38,10
+    COMBOBOX        IDC_CHOOSEEXPORT_GRIDFILETYPE,7,226,79,81,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_OPEN_FILE_BRWS DIALOGEX 0, 0, 419, 191
+STYLE DS_SYSMODAL | DS_SETFONT | DS_SETFOREGROUND | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "OK",IDOKnew,362,150,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,362,170,50,14
+    COMBOBOX        IDC_COMBO_NEWPROJDRIVE,29,2,70,50,CBS_DROPDOWNLIST | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Drive:",IDC_COMBO_NEWPROJDRIVE_TEXT,7,4,20,8,NOT WS_VISIBLE
+    LISTBOX         IDC_LIST_NEWPROJDIR,7,43,128,98,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL
+    LTEXT           "Directory:",IDC_STATIC,7,34,36,8
+    LTEXT           "Path:",IDC_STATIC,7,19,20,8
+    PUSHBUTTON      "New Directory...",IDC_NEWPROJ1_NEWDIR,122,4,59,14,NOT WS_VISIBLE
+    LTEXT           "Files:",IDC_STATIC4,141,34,17,8
+    LISTBOX         IDC_LIST_NEWPROJDIRFILES,184,43,228,99,LBS_SORT | LBS_NOINTEGRALHEIGHT | LBS_MULTICOLUMN | WS_HSCROLL
+    EDITTEXT        IDC_NEWPROJ_EDIT_DIR,34,17,378,14,ES_AUTOHSCROLL
+    LTEXT           "File Name:",IDC_STATIC1,7,153,34,8
+    LTEXT           "Files of type:",IDC_STATIC2,7,172,40,8
+    EDITTEXT        IDC_FILENAME_EDIT,56,151,290,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO1,55,172,291,60,CBS_DROPDOWN | WS_TABSTOP
+    LTEXT           "Note: When entering a path, ensure that you place a 'forward slash' at the end of the path",IDC_SLASH_TEXT,110,4,302,8,NOT WS_VISIBLE,0,HIDC_SLASH_TEXT
+END
+
+IDD_ConfigForm_DIALOG DIALOG 0, 0, 77, 7
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Initialising"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,0,0,77,7
+END
+
+IDD_IMP_WELL_HOR_DATA DIALOGEX 0, 0, 354, 96
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Import well horizon data"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Select well data file",IDC_BUTTONSINGLE,7,15,101,14
+    DEFPUSHBUTTON   "OK",IDOK,297,58,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,297,75,50,14
+    LTEXT           "Pseudo velocities substitute well times with grid times. Well times outside the grid will be retained.",IDC_STATIC,7,48,260,18
+    LTEXT           "Well data file not selected",IDC_STATIC4,115,18,232,8
+    CONTROL         "Exclude deviated wells outside grid area",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,74,276,10
+    CONTROL         "Use pseudo velocities",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,33,119,10
+END
+
+IDD_CHOOSE_ANY_WELL DIALOGEX 0, 0, 267, 255
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Description"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,153,234,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,210,234,50,14
+    LISTBOX         IDC_LIST1,7,32,253,180,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Text",IDC_LABEL,7,7,196,20
+    LTEXT           "Use control key to select multiple wells",IDC_STATIC,7,218,79,30
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_CONTOUR_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 173
+    END
+
+    IDD_CHOOSE_ANY_GRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 288
+        VERTGUIDE, 182
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 235
+    END
+
+    IDD_CHOOSE_ANY_GRID_MULT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 276
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 235
+    END
+
+    IDD_NEWPROJ_3, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 278
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 156
+    END
+
+    IDD_RENAME_GRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_CREATE_CONSTGRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 73
+    END
+
+    IDD_DEFINE_HORIZONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 227
+    END
+
+    IDD_SPECTR_ANALYSIS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 572
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 253
+    END
+
+    IDD_FFT_DIRECTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+
+    IDD_GRID_STATISTICS, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 124
+    END
+
+    IDD_WELLTABLES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 199
+        VERTGUIDE, 150
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 311
+    END
+
+    IDD_TIMEGRIDIMP_ERROR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_HOWTO_AUTOCORR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 73
+    END
+
+    IDD_CREATEPROJDIR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_LIMIT_GRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 410
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 244
+    END
+
+    IDD_IMRDIALOGUE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 321
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 262
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 97
+    END
+
+    IDD_NEWPROJ_1, DIALOG
+    BEGIN
+        RIGHTMARGIN, 321
+        BOTTOMMARGIN, 223
+    END
+
+    IDD_PROJ_GUIDE_DLG, DIALOG
+    BEGIN
+    END
+
+    IDD_RMSIMPORT1, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 184
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 227
+    END
+
+    IDD_FILTERMANAGEMENT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 228
+    END
+
+    IDD_RMS_COORDCONV2, DIALOG
+    BEGIN
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+    END
+
+    IDD_WELLHORIZ_TIMEGRID_MAP, DIALOG
+    BEGIN
+        RIGHTMARGIN, 474
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 218
+        HORZGUIDE, 17
+        HORZGUIDE, 60
+    END
+
+    IDD_MAPPING_ERROR, DIALOG
+    BEGIN
+    END
+
+    IDD_NEWPROJ_2, DIALOG
+    BEGIN
+        RIGHTMARGIN, 330
+        RIGHTMARGIN, 330
+        BOTTOMMARGIN, 197
+    END
+
+    IDD_MODEL_CHOOSELAYER, DIALOG
+    BEGIN
+        RIGHTMARGIN, 219
+        BOTTOMMARGIN, 188
+    END
+
+    IDD_MODELCHOICE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 140
+        BOTTOMMARGIN, 238
+    END
+
+    IDD_EDITWELL, DIALOG
+    BEGIN
+        TOPMARGIN, 4
+    END
+
+    IDD_CHANGE_WEIGHTS, DIALOG
+    BEGIN
+    END
+
+    IDD_NUMERIC_RESIDUES, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_RMSIMPORT_2DSUPPFILE, DIALOG
+    BEGIN
+        RIGHTMARGIN, 229
+        BOTTOMMARGIN, 204
+    END
+
+    IDD_GRID_ARITHMETIC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 298
+    END
+
+    IDD_GRIDIMPORT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 252
+        BOTTOMMARGIN, 293
+    END
+
+    IDD_SMOOTHGRID_OPTIONS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 326
+        VERTGUIDE, 276
+        BOTTOMMARGIN, 218
+    END
+
+    IDD_HOWTOTIE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 62
+    END
+
+    IDD_SMOOTH_MOVINGWND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 92
+    END
+
+    IDD_GRIDDATABASE_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 455
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 177
+    END
+
+    IDD_SECONDARYDEPTHCONV_OPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 129
+    END
+
+    IDD_DEPTHCONV_TIMESLICE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 146
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 43
+    END
+
+    IDD_RESULTS_RMSTESTIMPORT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 345
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_REBUILD_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 154
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 69
+    END
+
+    IDD_LOGFILEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 474
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 202
+    END
+
+    IDD_DESIGNATE_GRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 240
+    END
+
+    IDD_TIMECONVERT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+    END
+
+    IDD_WELLFORECAST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 414
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 276
+    END
+
+    IDD_TIMEIMPORT_WHATTOTIE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 238
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 130
+    END
+
+    IDD_FINETUNE_CUSTOMFIT_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 323
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_FINETUNE_MISC_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 323
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_FINETUNE_QUICKHELP1_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 323
+        VERTGUIDE, 251
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 99
+        HORZGUIDE, 9
+        HORZGUIDE, 29
+    END
+
+    IDD_FINETUNE_QUICKHELP2_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 323
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_FINETUNE_WEIGHTS_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 323
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_FINETUNE_FIT_PAGE, DIALOG
+    BEGIN
+    END
+
+    IDD_WARN_OTHERMODEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 256
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+
+    IDD_FINETUNE_RESIDUALS_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 323
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_RAYTRACE_PROPS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 199
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_GRID_OVERWRITENULL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+
+    IDD_GRIDEXPORT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 226
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 238
+    END
+
+    IDD_OPEN_FILE_BRWS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 412
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_ConfigForm_DIALOG, DIALOG
+    BEGIN
+    END
+
+    IDD_IMP_WELL_HOR_DATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 347
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 89
+    END
+
+    IDD_CHOOSE_ANY_WELL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 248
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_RENAME_GRID DLGINIT
+BEGIN
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 5, 0
+0x6954, 0x656d, "\000" 
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 18, 0
+0x6e49, 0x6574, 0x7672, 0x6c61, 0x7620, 0x6c65, 0x636f, 0x7469, 0x0079, 
+
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 6, 0
+0x6544, 0x7470, 0x0068, 
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 6, 0
+0x744f, 0x6568, 0x0072, 
+    0
+END
+
+IDD_CHANGE_WEIGHTS DLGINIT
+BEGIN
+    IDC_CHGWEIGHT_METHOD, 0x403, 9, 0
+0x696c, 0x656e, 0x7261, 0x796c, "\000" 
+    IDC_CHGWEIGHT_METHOD, 0x403, 14, 0
+0x7571, 0x6461, 0x6172, 0x6974, 0x6163, 0x6c6c, 0x0079, 
+    0
+END
+
+IDD_GRID_ARITHMETIC DLGINIT
+BEGIN
+    IDC_ARITH_OPERATOR, 0x403, 5, 0
+0x6c70, 0x7375, "\000" 
+    IDC_ARITH_OPERATOR, 0x403, 6, 0
+0x696d, 0x756e, 0x0073, 
+    IDC_ARITH_OPERATOR, 0x403, 6, 0
+0x6974, 0x656d, 0x0073, 
+    IDC_ARITH_OPERATOR, 0x403, 7, 0
+0x6964, 0x6976, 0x6564, "\000" 
+    0
+END
+
+IDD_GRIDIMPORT DLGINIT
+BEGIN
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 5, 0
+0x6954, 0x656d, "\000" 
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 6, 0
+0x6544, 0x7470, 0x0068, 
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 18, 0
+0x6e49, 0x6574, 0x7672, 0x6c61, 0x7620, 0x6c65, 0x636f, 0x7469, 0x0079, 
+
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 6, 0
+0x744f, 0x6568, 0x0072, 
+    0
+END
+
+IDD_NEWPROJ_1 DLGINIT
+BEGIN
+    IDC_NEWPROG_UNITS, 0x403, 7, 0
+0x656d, 0x7274, 0x7365, "\000" 
+    IDC_NEWPROG_UNITS, 0x403, 5, 0
+0x6566, 0x7465, "\000" 
+    IDC_NEWPROG_LOGDETAIL, 0x403, 4, 0
+0x6f6c, 0x0077, 
+    IDC_NEWPROG_LOGDETAIL, 0x403, 9, 0
+0x7473, 0x6e61, 0x6164, 0x6472, "\000" 
+    IDC_NEWPROG_LOGDETAIL, 0x403, 5, 0
+0x6968, 0x6867, "\000" 
+    0
+END
+
+IDD_NEWPROJ_2 DLGINIT
+BEGIN
+    IDC_NEWPROJ_GRIDFILETYPE, 0x403, 12, 0
+0x495a, 0x534d, 0x2820, 0x2e2a, 0x2a67, 0x0029, 
+    IDC_NEWPROJ_GRIDFILETYPE, 0x403, 14, 0
+0x2d5a, 0x414d, 0x2050, 0x2a28, 0x6d2e, 0x6466, 0x0029, 
+    IDC_NEWPROJ_GRIDFILETYPE, 0x403, 14, 0
+0x5043, 0x2d53, 0x2033, 0x2a28, 0x732e, 0x7376, 0x0029, 
+    IDC_NEWPROJ_GRIDFILETYPE, 0x403, 15, 0
+0x5043, 0x2d53, 0x2033, 0x2a28, 0x732e, 0x7063, 0x2973, "\000" 
+    IDC_NEWPROJ_GRIDFILETYPE, 0x403, 21, 0
+0x6145, 0x7472, 0x5668, 0x7369, 0x6f69, 0x206e, 0x2a28, 0x2a2e, 0x7267, 
+0x2964, "\000" 
+    IDC_NEWPROJ_GRIDFILETYPE, 0x403, 17, 0
+0x4d5a, 0x5041, 0x4920, 0x4f53, 0x2820, 0x2e2a, 0x6164, 0x2974, "\000" 
+    0
+END
+
+IDD_FINETUNE_WEIGHTS_PAGE DLGINIT
+BEGIN
+    IDC_CHGWEIGHT_METHOD2, 0x403, 9, 0
+0x696c, 0x656e, 0x7261, 0x796c, "\000" 
+    IDC_CHGWEIGHT_METHOD2, 0x403, 14, 0
+0x7571, 0x6461, 0x6172, 0x6974, 0x6163, 0x6c6c, 0x0079, 
+    0
+END
+
+IDD_GRIDEXPORT DLGINIT
+BEGIN
+    IDC_CHOOSEEXPORT_GRIDFILETYPE, 0x403, 13, 0
+0x5341, 0x4943, 0x2049, 0x2e28, 0x6c78, 0x2973, "\000" 
+    IDC_CHOOSEEXPORT_GRIDFILETYPE, 0x403, 11, 0
+0x495a, 0x534d, 0x2820, 0x672e, 0x292a, "\000" 
+    IDC_CHOOSEEXPORT_GRIDFILETYPE, 0x403, 13, 0
+0x2d5a, 0x414d, 0x2050, 0x2e28, 0x666d, 0x2964, "\000" 
+    IDC_CHOOSEEXPORT_GRIDFILETYPE, 0x403, 13, 0
+0x5043, 0x2d53, 0x2033, 0x2e28, 0x7673, 0x2973, "\000" 
+    IDC_CHOOSEEXPORT_GRIDFILETYPE, 0x403, 14, 0
+0x5043, 0x2d53, 0x2033, 0x2e28, 0x6373, 0x7370, 0x0029, 
+    IDC_CHOOSEEXPORT_GRIDFILETYPE, 0x403, 20, 0
+0x6145, 0x7472, 0x5668, 0x7369, 0x6f69, 0x206e, 0x2e28, 0x672a, 0x6472, 
+0x0029, 
+    IDC_CHOOSEEXPORT_GRIDFILETYPE, 0x403, 17, 0
+0x6d5a, 0x7061, 0x4920, 0x4f53, 0x2820, 0x2e2a, 0x6164, 0x2974, "\000" 
+    0
+END
+
+IDD_CREATE_CONSTGRID DLGINIT
+BEGIN
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 5, 0
+0x6954, 0x656d, "\000" 
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 18, 0
+0x6e49, 0x6574, 0x7672, 0x6c61, 0x7620, 0x6c65, 0x636f, 0x7469, 0x0079, 
+
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 6, 0
+0x6544, 0x7470, 0x0068, 
+    IDC_GRIDIMP_GRIDTYPE, 0x403, 6, 0
+0x744f, 0x6568, 0x0072, 
+    0
+END
+
+IDD_ABOUTBOX DLGINIT
+BEGIN
+    IDC_MFCLINK1, 0x37c, 188, 0
+0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x555f, 0x6c72, 0x683e, 0x7474, 0x3a70, 
+0x2f2f, 0x7777, 0x2e77, 0x6576, 0x6f6c, 0x6963, 0x7974, 0x616d, 0x616e, 
+0x6567, 0x2e72, 0x6f63, 0x2f6d, 0x2f3c, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 
+0x7255, 0x3e6c, 0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x555f, 0x6c72, 0x7250, 
+0x6665, 0x7869, 0x3c3e, 0x4d2f, 0x4346, 0x694c, 0x6b6e, 0x555f, 0x6c72, 
+0x7250, 0x6665, 0x7869, 0x3c3e, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x6f54, 
+0x6c6f, 0x6974, 0x3e70, 0x2f3c, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x6f54, 
+0x6c6f, 0x6974, 0x3e70, 0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x465f, 0x6c75, 
+0x546c, 0x7865, 0x5474, 0x6f6f, 0x746c, 0x7069, 0x463e, 0x4c41, 0x4553, 
+0x2f3c, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7546, 0x6c6c, 0x6554, 0x7478, 
+0x6f54, 0x6c6f, 0x6974, 0x3e70, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "RES\\TOOLBAR.BMP"
+
+NEWPROJBUTTOND          BITMAP                  "RES\\NEWPROJD.BMP"
+
+NEWPROJBUTTONU          BITMAP                  "RES\\NEWPROJU.BMP"
+
+OPENPROJBUTTOND         BITMAP                  "RES\\OPENPROD.BMP"
+
+OPENPROJBUTTONU         BITMAP                  "RES\\OPENPROU.BMP"
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""res\\velman.rc2""  // non-App Studio edited resources\r\n"
+    "\r\n"
+    "#include ""afxres.rc""  \t// Standard components\r\n"
+    "#include ""afxprint.rc""\t// printing/print preview resources\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "RES\\VELMAN.ICO"
+
+IDR_VELMANTYPE          ICON                    "RES\\VELMADOC.ICO"
+
+IDI_PROJ_GUIDE          ICON                    "RES\\PROJ_GUI.ICO"
+
+IDI_STOPSIGN            ICON                    "res\\stopsign.ico"
+
+IDI_FINETUNE            ICON                    "res\\finetune.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&Project"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Index",                      ID_HELP_INDEX
+        MENUITEM SEPARATOR
+        MENUITEM "&About VelocityManager...",   ID_APP_ABOUT
+    END
+END
+
+IDR_VELMANTYPE MENU
+BEGIN
+    POPUP "&Project"
+    BEGIN
+        MENUITEM "&New...\tCtrl+N",             ID_PROJECT_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "&View log file",              ID_PROJECT_VIEWLOGFILE
+        MENUITEM "Save project report",         ID_PROJECT_SAVEPROJECTREPORT
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "We&ll data"
+    BEGIN
+        MENUITEM "&Import well horizon data...", ID_WELLMODELLING_IMPORTWELLDATA
+        MENUITEM "Import &time grid data...",   ID_IMPORT_IMPORTTIMEDATA
+        MENUITEM "Export well data file",       ID_EXPORT_WELLDATA
+        MENUITEM SEPARATOR
+        MENUITEM "Remove well",                 ID_WELLDATA_DELETEWELL
+        MENUITEM "Interpolate fault null polygons", ID_WELLDATA_INTERPOLATEFAULTNULLPOLYGONS
+        MENUITEM SEPARATOR
+        MENUITEM "&Create/Modify model...\tCtrl-M", ID_MODEL_CREATEMODEL
+        MENUITEM SEPARATOR
+        MENUITEM "Show &residuals",             ID_MODEL_SHOWRESIDUALTABLE
+        MENUITEM "Show &list of models",        ID_MODEL_SHOWLISTOFMODELS
+        MENUITEM "Well data tables",            ID_SHOWWELLDATATABLEBUTTON
+    END
+    POPUP "Quality Control"
+    BEGIN
+        MENUITEM "Well da&ta tables",           ID_SHOWWELLDATATABLE
+        MENUITEM "Residuals display",           ID_MODEL_SHOWRESIDUALTABLE
+        MENUITEM "Export well data file",       ID_EXPORT_WELLDATA
+        MENUITEM "Models-list",                 ID_MODEL_SHOWLISTOFMODELS
+        MENUITEM "Project report",              ID_PROJECT_VIEWLOGFILE
+        MENUITEM "Grid statistics",             ID_GRIDTOOLS_STATISTICS
+        MENUITEM SEPARATOR
+        MENUITEM "Clip grid spectrum",          ID_GRIDS_SPECTRUMANALYSIS
+        MENUITEM "Well forecast (grid-back interpolation)", ID_DEPTHCONVERSION_VELOCITYCUBE_WELLFORECAST
+        MENUITEM "View correction grids",       ID_TIMEDATA_CONTOURPLOTOFTIMEGRIDS
+        MENUITEM "Av. Velocity-time slice",     ID_DEPTHCONVERSION_VELOCITYCUBE_VELOCITYTIMESLICE
+        MENUITEM "Time slice in depth",         ID_DEPTHCONVERSION_CONVERTTIMESLICE
+        MENUITEM "Grid filter 3D",              ID_GRIDTOOLS_SMOOTH
+        MENUITEM SEPARATOR
+        MENUITEM "RMS Coverage",                ID_SEISMICDATA_MAPOFSHOTPOINTS
+        MENUITEM "Add RMS filter",              ID_IMPORT_FILTERMANAGEMENT
+    END
+    POPUP "&Seismic data"
+    BEGIN
+        MENUITEM "&Define horizons...",         ID_WELLSHORIZONS_DEFINEHORIZONS
+        MENUITEM SEPARATOR
+        MENUITEM "Import &time grid data...",   ID_IMPORT_IMPORTTIMEDATA
+        MENUITEM SEPARATOR
+        MENUITEM "SEGY reader...",              ID_SEISMICDATA_OPENSEGYCONVERTER
+        MENUITEM "T&est RMS import...",         ID_SEISMICDATA_TESTRMSIMPORT
+        MENUITEM "&Import RMS data...",         ID_IMPORT_IMPORTRMSDATA
+        MENUITEM "&Map of RMS points...",       ID_SEISMICDATA_MAPOFSHOTPOINTS
+        MENUITEM SEPARATOR
+        MENUITEM "&Process RMS data...",        ID_PROCESS_PROCESSRMSVELOCITIES
+        MENUITEM "&Create depth grids",         ID_DEPTHCONVERSION_CREATEDEPTHGRIDS
+        MENUITEM SEPARATOR
+        MENUITEM "&Filter management...",       ID_IMPORT_FILTERMANAGEMENT
+    END
+    POPUP "V&elocityVolume"
+    BEGIN
+        MENUITEM "&Depth convert secondary time grid...", ID_DEPTHCONVERSION_CONVERTSECONDARYTIMEGRID
+        MENUITEM "&Depth convert fault plane...", ID_DEPTHCONVERSION_CONVERTSECONDARYTIMEGRID
+        MENUITEM "&Depth convert time slice...", ID_DEPTHCONVERSION_CONVERTTIMESLICE
+        MENUITEM "&Velocity time slice...",     ID_DEPTHCONVERSION_VELOCITYCUBE_VELOCITYTIMESLICE
+        MENUITEM "&Time convert...",            ID_DEPTHCONVERSION_VELOCITYCUBE_CONVERTSINGLEWELLLOCATIONS
+        MENUITEM "&Well forecast (grid-back interpolation)", ID_DEPTHCONVERSION_VELOCITYCUBE_WELLFORECAST
+        MENUITEM "Compute &all interval velocities", ID_VELOCITYVOLUME_COMPUTEALLINTERVALVELOCITIES
+        MENUITEM "&IMR II, depth artifact removal...", ID_VELOCITYVOLUME_IMRCONVERTTIMEGRID
+    END
+    POPUP "&Depth Migration-3D"
+    BEGIN
+        MENUITEM "Depth Migration, Image ray 3D", ID_RAYTRACE
+        MENUITEM "&Properties",                 ID_RAYTRACE3D_PROPERTIES
+    END
+    POPUP "&Grid tools"
+    BEGIN
+        MENUITEM "&Directory...",               ID_GRIDTOOLS_DIRECTORY
+        MENUITEM "&Export...",                  ID_GRIDS_EXPORT
+        MENUITEM "&Import...",                  ID_GRIDS_IMPORT
+        MENUITEM "&Remove...",                  ID_GRIDS_DELETE
+        MENUITEM "Du&plicate...",               ID_GRIDS_DUPLICATE
+        MENUITEM "Re&name...",                  ID_GRIDS_RENAME
+        MENUITEM "Design&ate...",               ID_GRIDTOOLS_DESIGNATE
+        MENUITEM SEPARATOR
+        MENUITEM "&Statistics...",              ID_GRIDTOOLS_STATISTICS
+        MENUITEM "&Contour plot...",            ID_TIMEDATA_CONTOURPLOTOFTIMEGRIDS
+        MENUITEM SEPARATOR
+        MENUITEM "&Fourier transform...",       ID_GRIDS_FOURIERTRANSFORM
+        MENUITEM "&Tie to well data...",        ID_GRIDS_TIETOWELLDATA
+        MENUITEM "Spatial &filter (FFT)...",    ID_GRIDS_SMOOTH
+        MENUITEM "&Spatial filter (Matrix)...", ID_GRIDTOOLS_SMOOTH
+        MENUITEM "Re&build null values...",     ID_GRIDS_PATCH
+        MENUITEM "&Limit null values...",       ID_GRIDTOOLS_LIMIT
+        MENUITEM "Clip grid &spectrum...",      ID_GRIDS_SPECTRUMANALYSIS
+        MENUITEM SEPARATOR
+        MENUITEM "Create constant &grid...",    ID_GRIDS_CREATECONSTANTGRID
+        MENUITEM "Grid &arithmetic...",         ID_GRIDS_GRIDARITHMETIC
+        MENUITEM "Overwrite null values...",    ID_GRIDS_OVERWRITENULL
+    END
+    POPUP "3D Visualisation"
+    BEGIN
+        MENUITEM "&3D Visualisation\tCtrl+V",   ID_PROJECT_3DVIS
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New window",                 ID_WINDOW_NEW
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Index",                      ID_HELP_INDEX
+        MENUITEM "What &next?\tCtrl+W",         ID_HELP_WHATNOW
+        POPUP "Video tutorials"
+        BEGIN
+            MENUITEM "Getting started with functions", ID_HELP_DEMONSTRATIONVIDEOS
+            MENUITEM "Function modelling",          ID_DEMONSTRATIONVIDEOS_FUNCTIONMODELLING
+            MENUITEM "Function refinement",         ID_DEMONSTRATIONVIDEOS_FUNCTIONREFINEMENT
+            MENUITEM "Function quality control",    ID_DEMONSTRATIONVIDEOS_FUNCTIONQUALITYCONTROL
+            MENUITEM "Saving well data",            ID_DEMONSTRATIONVIDEOS_SAVINGWELLDATA
+            MENUITEM "Function residual controls",  ID_DEMONSTRATIONVIDEOS_FUNCTIONRESIDUALCONTROLS
+            MENUITEM SEPARATOR
+            MENUITEM "Getting started with RMS velocities", ID_DEMONSTRATIONVIDEOS_GETTINGSTARTEDWITHRMSVELOCITIES
+            MENUITEM "Process velocity data",       ID_DEMONSTRATIONVIDEOS_PROCESSVELOCITYDATA
+            MENUITEM "RMS quality control",         ID_DEMONSTRATIONVIDEOS_RMSQUALITYCONTROL
+            MENUITEM "Importing SEGY data",         ID_DEMONSTRATIONVIDEOS_IMPORTINGSEGYDATA
+            MENUITEM SEPARATOR
+            MENUITEM "Saving grids",                ID_DEMONSTRATIONVIDEOS_SAVINGGRIDS
+            MENUITEM "Well data format",            ID_DEMONSTRATIONVIDEOS_WELLDATAFORMAT
+            MENUITEM "IMR II",                      ID_DEMONSTRATIONVIDEOS_IMRII
+            MENUITEM "3D visualisation",            ID_DEMONSTRATIONVIDEOS_3DVISUALISATION
+            MENUITEM "Depth migration",             ID_DEMONSTRATIONVIDEOS_DEPTHMIGRATION
+            MENUITEM "Depth convert secondary grid", ID_DEMONSTRATIONVIDEOS_DEPTHCONVERTSECONDARYGRID
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&About VelocityManager...",   ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "M",            ID_MODEL_CREATEMODEL,   VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_MODEL_SHOWRESIDUALTABLE, VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F1,          ID_HELP_INDEX,          VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "W",            ID_HELP_WHATNOW,        VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "VelocityManager"
+    IDR_VELMANTYPE          "\nVelman\nVelman Document\nProject Files (*.prj)\n.prj\nVelman.Document\nVelman Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "VelocityManager"
+    AFX_IDS_IDLEMESSAGE     "For Help, press F1"
+    AFX_IDS_HELPMODEMESSAGE "Select an object on which to get Help"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new project\nCreate a new project"
+    ID_FILE_OPEN            "Continue working on an existing project\nOpen Project"
+    ID_FILE_CLOSE           "Close the active project"
+    ID_FILE_SAVE            "Save all data related to this project\nSave project"
+    ID_FILE_SAVE_AS         "Save the active document with a new name"
+    ID_FILE_PAGE_SETUP      "Change the printing options"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright"
+    ID_APP_EXIT             "Quit the application; prompts to save if necessary"
+    ID_HELP_INDEX           "List Help topics\nList Help topics"
+    ID_HELP_USING           "Display instructions about how to use help"
+    ID_CONTEXT_HELP         "Display help for clicked on buttons, menus and windows"
+    ID_HELP                 "Display help for current task or command"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open and work with this project"
+    ID_FILE_MRU_FILE2       "Work with this project"
+    ID_FILE_MRU_FILE3       "Work with this project"
+    ID_FILE_MRU_FILE4       "Work with this project"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane"
+    ID_PREV_PANE            "Switch back to the previous window pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles"
+    ID_WINDOW_SPLIT         "Split the active window into panes"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection"
+    ID_EDIT_CLEAR_ALL       "Erase everything"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard"
+    ID_EDIT_FIND            "Find the specified text"
+    ID_EDIT_PASTE           "Insert Clipboard contents"
+    ID_EDIT_REPEAT          "Repeat the last action"
+    ID_EDIT_REPLACE         "Replace specific text with different text"
+    ID_EDIT_SELECT_ALL      "Select the entire document"
+    ID_EDIT_UNDO            "Undo the last action"
+    ID_EDIT_REDO            "Redo the previously undone action"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the project"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE
+BEGIN
+    ID_MODEL_CREATEMODEL    "Create or modify the time/depth model for each layer\nCreate/modify the model"
+    ID_MODEL_APPLYMODEL     "Apply the time/depth models to RMS data"
+    ID_HELP_WHATNOW         "Describes the next step you should take\nWhat next?"
+    IDS_WHATNOW0            "Create an ASCII dump of the project data"
+    IDS_WHATNOW1            "Import of RMS time/velocity data from various file formats"
+    ID_IMPORT_FILTERMANAGEMENT 
+                            "Add RMS filters to the list of import options, or update old filter versions"
+    ID_IMPORT_IMPORTZIMMSDATA 
+                            "Import velocity information directly from a Z-MAP file"
+    ID_EXPORT_EXPORTZIMSCUBE 
+                            "Saves the entire imported and processed data to disk -- preliminary implementation!"
+    ID_MODEL_SHOWRESIDUALTABLE 
+                            "Displays a table of all residuals\nDisplays a table of all residuals"
+    ID_MODEL_SHOWLISTOFMODELS "Displays a list of all models defined so far"
+    ID_IMPORT_IMPORTTIMEDATA "Import time grids that define the horizons"
+END
+
+STRINGTABLE
+BEGIN
+    LOG_NEWPROJ             "VelocityManager log file for project ""%1""\n"
+    LOG_NEWPROJ2            "Project created on %1 in directory %2"
+    LOG_CLOSEPROJ           "Stopped working on the project at %1."
+    LOG_OPENPROJ            "Continued working on the project at %1."
+END
+
+STRINGTABLE
+BEGIN
+    ID_MODEL_CLEARALLMODELSDEBUGFUNCTION 
+                            "Forgets about all the models chosen so far -- only for debug purposes"
+    ID_IMPORT_PROCESSDATA   "Processes the imported data"
+    ID_PROCESS_PROCESSTIMEGRIDS 
+                            "Filters the imported time grids and maps them to horizons"
+    ID_PROCESS_PROCESSRMSVELOCITIES "Maps imported velocities to horizons"
+    ID_PROCESS_DEPTHCONVERSION "Computes depth values from velocity values"
+    ID_WELLMODELLING_IMPORTWELLDATA 
+                            "Read time/depth and survey information for the wells from disk"
+    ID_GRIDS_CONTOURPLOT    "Contour plot\nContour plot"
+    ID_GRIDS_EXPORT         "Exports a single grid in either binary or ASCII format"
+    ID_GRIDS_IMPORT         "Imports a grid and lets user designate a type"
+    ID_GRIDS_DELETE         "Remove grid from internal database"
+    ID_GRIDS_FOURIERTRANSFORM "Transform grid into Fourier space"
+    ID_GRIDS_SMOOTH         "Matrix filter\nMatrix filter"
+END
+
+STRINGTABLE
+BEGIN
+    ID_RAYTRACE3D_PROPERTIES "Set raytracing properties\nRay trace properties"
+    ID_GRIDS_OVERWRITENULL  "Overwrites all NULL values in a grid"
+    ID_MODEL_SHOWRESI       "view residuals"
+    ID_PROJECT_3DVIS        "Launch 3D visualisation\nLaunch 3D visualisation"
+END
+
+STRINGTABLE
+BEGIN
+    ID_GRIDS_PATCH          "Remove NULL values from grid; replace with interpolation"
+    ID_GRIDS_GRIDARITHMETIC "Grid arithmetic\nGrid arithmetic"
+    ID_GRIDS_RENAME         "Change the name and/or type of a grid"
+    ID_GRIDS_CREATECONSTANTGRID "Creates time grid at a constant level"
+    ID_DEPTHCONVERSION_CREATEDEPTHGRIDS 
+                            "Depth converts from RMS\nDepth converts from RMS"
+    ID_DEPTHCONVERSION_PERFORMVELOCITYANALYSIS 
+                            "Creates a time/depth/velocity dependence model for each layer"
+    ID_WELLSHORIZONS_DEFINEHORIZONS 
+                            "Define names and order of horizons (for projects without well information only)"
+    ID_GRIDS_SPECTRUMANALYSIS "Clip grid spectrum\nClip grid spectrum"
+    ID_GRIDS_DUPLICATE      "Creates a copy of a grid"
+    ID_GRIDS_DESIGNATE      "Assigns a grid to a horizon and deletes these assignments"
+    ID_GRIDS_TIETOWELLDATA  "Ties a grid to well data (by adding a correction grid)"
+    ID_GRIDTOOLS_STATISTICS "Grid statistics\nGrid statistics"
+    ID_SHOWWELLDATATABLEBUTTON "View well data tables\nView well data tables"
+    ID_WELLSLAYERS_REPAIRWELLDATABASE 
+                            "Uses imported time grids to interpolate missing time values in the well database"
+END
+
+STRINGTABLE
+BEGIN
+    ID_PROJECT_EXPORT       "Create an ASCII transcript of the project data"
+    ID_GRIDTOOLS_DIRECTORY  "Directory of grids and faults\nDirectory of grids and faults"
+    ID_GRIDTOOLS_DESIGNATE  "Specify a grid to be used for depth conversion"
+    ID_GRIDTOOLS_LIMIT      "Limit a grid by setting some of its nodes to NULL values"
+    ID_GRIDTOOLS_SMOOTH     "Filter grid 3d"
+    ID_PROJECT_VIEWGRIDDATABASE 
+                            "Display report on all external grids in database"
+    ID_PROJECT_EXTENDLICENSE "Enter license code to extend software license"
+    ID_DEPTHCONVERSION_CONVERTSECONDARYTIMEGRID 
+                            "Fault plane depth conversion\nFault plane depth conversion"
+    ID_DEPTHCONVERSION_CONVERTTIMESLICE "Depth convert a constant time slice"
+    ID_SEISMICDATA_TESTRMSIMPORT 
+                            "Import first few lines from an RMS file for test purposes"
+    ID_SEISMICDATA_MAPOFSHOTPOINTS "RMS coverage map"
+    ID_DEPTHCONVERSION_VELOCITYCUBE_VELOCITYTIMESLICE 
+                            "Compute average velocity grid corresponding to a time slice"
+    ID_PROJECT_VIEWLOGFILE  "Project report\nProject report"
+END
+
+STRINGTABLE
+BEGIN
+    ID_DEPTHCONVERSION_VELOCITYCUBE_CONVERTSINGLEWELLLOCATIONS 
+                            "Use VelocityVolume to compute times from given depths at arbitrary spatial positions"
+    ID_DEPTHCONVERSION_VELOCITYCUBE_WELLFORECAST 
+                            "back interpolate from grid to point"
+    ID_VELOCITYVOLUME_COMPUTEALLINTERVALVELOCITIES 
+                            "Computes all interval velocity grids after completed depth conversion"
+    ID_VELOCITYVOLUME_IMRCONVERTTIMEGRID 
+                            "IMR depth artifact computation and removal"
+    ID_RAYTRACE             "Use 3D ray tracing\nRay trace"
+END
+
+#endif    // English (United Kingdom) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\velman.rc2"  // non-App Studio edited resources
+
+#include "afxres.rc"  	// Standard components
+#include "afxprint.rc"	// printing/print preview resources
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

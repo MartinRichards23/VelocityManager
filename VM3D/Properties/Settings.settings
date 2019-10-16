@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VM3D.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MaxCoord" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">1E+09</Value>
+    </Setting>
+    <Setting Name="MaxDepth" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">1E+09</Value>
+    </Setting>
+    <Setting Name="MaxTime" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">1E+09</Value>
+    </Setting>
+    <Setting Name="MaxIntervalVelocity" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">50000</Value>
+    </Setting>
+    <Setting Name="MinIntervalVelocity" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="SubSampleWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
+    <Setting Name="SubSampleHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
+    <Setting Name="PerPixelLighting" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

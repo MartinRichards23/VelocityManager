@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Velman", "VelMan\Velman.vcxproj", "{C7C20611-C729-4EDB-B151-935A14332106}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7C20611-C729-4EDB-B151-935A14332106}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{C7C20611-C729-4EDB-B151-935A14332106}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C7C20611-C729-4EDB-B151-935A14332106}.Debug|Win32.Build.0 = Debug|Win32
+		{C7C20611-C729-4EDB-B151-935A14332106}.Debug|x64.ActiveCfg = Debug|x64
+		{C7C20611-C729-4EDB-B151-935A14332106}.Debug|x64.Build.0 = Debug|x64
+		{C7C20611-C729-4EDB-B151-935A14332106}.Release|Any CPU.ActiveCfg = Release|Win32
+		{C7C20611-C729-4EDB-B151-935A14332106}.Release|Win32.ActiveCfg = Release|Win32
+		{C7C20611-C729-4EDB-B151-935A14332106}.Release|Win32.Build.0 = Release|Win32
+		{C7C20611-C729-4EDB-B151-935A14332106}.Release|x64.ActiveCfg = Release|x64
+		{C7C20611-C729-4EDB-B151-935A14332106}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9ACB379A-96A3-43B3-A89D-0E1864E94A4F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://martinrichards.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = VelMan\\Velman.vcxproj
+		SccProjectName1 = VelMan
+		SccLocalPath1 = VelMan
+	EndGlobalSection
+EndGlobal
