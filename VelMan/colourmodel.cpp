@@ -14,82 +14,82 @@
 //	r, g, b will be returned in the range 0-255.0
 //
 //	See Foley and van Dam, "Fundamentals of Interactive Computer Graphics".
-void CColourModel::HSVtoRGB(double h, double s, double v, int &r, int &g, int &b)
+void CColourModel::HSVtoRGB(double h, double s, double v, int& r, int& g, int& b)
 {
 	double	red = 0, green = 0, blue = 0;
 	double	f = 0, p = 0, q = 0, t = 0;
 	int     i = 0;
 
 	//	check range of input variables.
-	ASSERT( h < 360.0 );
-	ASSERT( 0.0 <= s && s <= 1.0 );
-	ASSERT( s <= v && v <= 1.0 );
-	h = fmod( h, 360.0 );
-	if ( h < 0 )
+	ASSERT(h < 360.0);
+	ASSERT(0.0 <= s && s <= 1.0);
+	ASSERT(s <= v && v <= 1.0);
+	h = fmod(h, 360.0);
+	if (h < 0)
 		h = h + 360.0;
-	if ( s < 0.0 )
+	if (s < 0.0)
 		s = 0.0;
-	if ( s > 1.0 )
+	if (s > 1.0)
 		s = 1.0;
-	if ( v < s )
+	if (v < s)
 		v = s;
-	if ( v > 1.0 )
+	if (v > 1.0)
 		v = 1.0;
 
 	// Achromatic case. RGB value is a grey equal to v so h is not defined & we ignore it.
-	if (zero_val(s) )
+	if (zero_val(s))
 	{
-		red   = v;
+		red = v;
 		green = v;
-		blue  = v;
+		blue = v;
 	}
 	else
 	{
 		// Chromatic case
-		if ( zero_val(h-360.0) )
+		if (zero_val(h - 360.0))
 			h = 0.0;
 		h /= 60.;
-		i = (int) floor(h);
+		i = (int)floor(h);
 		f = h - i;
-		p = v*(1 - s);
-		q = v*(1 - s*f);
-		t = v*(1 - s*(1 - f));
+		p = v * (1 - s);
+		q = v * (1 - s * f);
+		t = v * (1 - s * (1 - f));
 		switch (i)
 		{
 		case 0:
-			red   = v;
+			red = v;
 			green = t;
-			blue  = p;
+			blue = p;
 			break;
 
 		case 1:
-			red   = q;
+			red = q;
 			green = v;
-			blue  = p;
+			blue = p;
 			break;
 
 		case 2:
-			red   = p;
+			red = p;
 			green = v;
-			blue  = t;
+			blue = t;
 			break;
 
 		case 3:
-			red   = p;
+			red = p;
 			green = q;
-			blue  = v;
+			blue = v;
 			break;
 
 		case 4:
-			red   = t;
+			red = t;
 			green = p;
-			blue  = v;
+			blue = v;
 			break;
 
 		case 5:
-			red   = v;
+			red = v;
 			green = p;
-			blue  = q;
+			blue = q;
 			break;
 		}
 	}
@@ -101,12 +101,12 @@ void CColourModel::HSVtoRGB(double h, double s, double v, int &r, int &g, int &b
 	// answer in this implementation is 2, so 1.9995 + 0.001 = 2.0005, or 2
 	// when represented as an int). If a number is something like 5.0032 adding
 	// 0.001 wont have any effect.
-	r = (int) (red*255.   + 0.001);
-	g = (int) (green*255. + 0.001);
-	b = (int) (blue*255.  + 0.001);
+	r = (int)(red * 255. + 0.001);
+	g = (int)(green * 255. + 0.001);
+	b = (int)(blue * 255. + 0.001);
 }
 
-void CColourModel::RGBtoHSV(int r, int g, int b, double &h, double &s, double &v )
+void CColourModel::RGBtoHSV(int r, int g, int b, double& h, double& s, double& v)
 //
 //	Inputs RGB and returns corresponding HSV.
 //	r, g, b are each in the range 0-255.
@@ -121,26 +121,26 @@ void CColourModel::RGBtoHSV(int r, int g, int b, double &h, double &s, double &v
 	double	delta;
 
 	//	Check range of input variables
-	ASSERT( 0 <= r && r <= 255 );
-	ASSERT( 0 <= b && b <= 255 );
-	ASSERT( 0 <= g && g <= 255 );
-	if ( r < 0 )
+	ASSERT(0 <= r && r <= 255);
+	ASSERT(0 <= b && b <= 255);
+	ASSERT(0 <= g && g <= 255);
+	if (r < 0)
 		r = 0;
-	if ( r > 255 )
+	if (r > 255)
 		r = 255;
-	if ( g < 0 )
+	if (g < 0)
 		g = 0;
-	if ( g > 255 )
+	if (g > 255)
 		g = 255;
-	if ( b < 0 )
+	if (b < 0)
 		b = 0;
-	if ( b > 255 )
+	if (b > 255)
 		b = 255;
 
 	// Convert from Windows color numbers to normalized values [0, 1]
-	red   = r / 255.0;
+	red = r / 255.0;
 	green = g / 255.0;
-	blue  = b / 255.0;
+	blue = b / 255.0;
 
 	//	Compute value
 	maxColor = max(max(red, green), blue);
@@ -149,13 +149,13 @@ void CColourModel::RGBtoHSV(int r, int g, int b, double &h, double &s, double &v
 	v = maxColor; // This is the Value (Brightness)
 
 	//	Calculate saturation
-	if ( zero_val(maxColor) )
+	if (zero_val(maxColor))
 		s = 0.0;
 	else
-		s = (maxColor - minColor)/maxColor;
+		s = (maxColor - minColor) / maxColor;
 
 	//	Compute hue
-	if (zero_val(s) )
+	if (zero_val(s))
 	{
 		// Achromatic case
 		h = -1; 	// UNDEFINED
@@ -164,18 +164,18 @@ void CColourModel::RGBtoHSV(int r, int g, int b, double &h, double &s, double &v
 	{
 		// Chromatic case
 		delta = maxColor - minColor;
-		if ( zero_val(red - maxColor ) )
-			h = (green - blue)/delta;		// Resulting color is between yellow and magenta
-		else if ( zero_val(green - maxColor) )
-			h = 2 + (blue - red)/delta;		// Resulting color is between cyan and yellow
-		else if( zero_val(blue - maxColor) )
-			h = 4 + (red - green)/delta;	// Resulting color is between magenta and cyan
+		if (zero_val(red - maxColor))
+			h = (green - blue) / delta;		// Resulting color is between yellow and magenta
+		else if (zero_val(green - maxColor))
+			h = 2 + (blue - red) / delta;		// Resulting color is between cyan and yellow
+		else if (zero_val(blue - maxColor))
+			h = 4 + (red - green) / delta;	// Resulting color is between magenta and cyan
 
-		h = h*60.;	// convert to degrees
+		h = h * 60.;	// convert to degrees
 
 		// make sure hue is nonnegative
 		if (h < 0)
-			h = h+360;
+			h = h + 360;
 	}
 }
 
@@ -219,51 +219,51 @@ BOOL CColourModel::TestHSV()
 // h in [0, 360) (or less than zero = UNDEFINED)
 // l and s in [0, 1]
 // r, g, b each in [0, 255]
-void CColourModel::HLStoRGB( double h, double l, double s, int &r, int &g, int &b )
+void CColourModel::HLStoRGB(double h, double l, double s, int& r, int& g, int& b)
 {
 	double	red = 0, green = 0, blue = 0;
 	double	m1 = 0, m2 = 0;
 
 	//	Check range of input variables
-	ASSERT( h < 360.0 );
-	ASSERT( 0.0 <= l && l <= 1.0 );
-	ASSERT( 0.0 <= s && s <= 1.0 );
-	h = fmod( h, 360.0 );
-	if ( h < 0 )
+	ASSERT(h < 360.0);
+	ASSERT(0.0 <= l && l <= 1.0);
+	ASSERT(0.0 <= s && s <= 1.0);
+	h = fmod(h, 360.0);
+	if (h < 0)
 		h = h + 360.0;
-	if ( l < 0.0 )
+	if (l < 0.0)
 		l = 0.0;
-	if ( l > 1.0 )
+	if (l > 1.0)
 		l = 1.0;
-	if ( s < 0.0 )
+	if (s < 0.0)
 		s = 0.0;
-	if ( s > 1.0 )
+	if (s > 1.0)
 		s = 1.0;
 
 	//  Compute r g b values.
 	if (l <= 0.5)
-		m2 = l*(1 + s);
+		m2 = l * (1 + s);
 	else
-		m2 = l + s - l*s;
+		m2 = l + s - l * s;
 
-	m1 = 2*l - m2;
+	m1 = 2 * l - m2;
 
 	if (zero_val(s))
 	{
 		// Achromatic : there is no hue
 		if (h < 0) // UNDEFINED
 		{
-			red   = l;
+			red = l;
 			green = l;
-			blue  = l;
+			blue = l;
 		}	 // else => an error but we ignore it here.
 	}
 	else
 	{
 		// Chromatic case, so there is a hue
-		red   = ComputeValue(m1, m2, h + 120.);
+		red = ComputeValue(m1, m2, h + 120.);
 		green = ComputeValue(m1, m2, h);
-		blue  = ComputeValue(m1, m2, h - 120.);
+		blue = ComputeValue(m1, m2, h - 120.);
 	}
 
 	// Convert to r, g, b values for Windows
@@ -273,12 +273,12 @@ void CColourModel::HLStoRGB( double h, double l, double s, int &r, int &g, int &
 	// answer in this implementation is 2, so 1.9995 + 0.001 = 2.0005, or 2
 	// when represented as an int). If a number is something like 5.0032 adding
 	// 0.001 wont have any effect.
-	r = (int) (red*255. + 0.001);
-	g = (int) (green*255. + 0.001);
-	b = (int) (blue*255. + 0.001);
+	r = (int)(red * 255. + 0.001);
+	g = (int)(green * 255. + 0.001);
+	b = (int)(blue * 255. + 0.001);
 }
 
-void CColourModel::RGBtoHLS( int r, int g, int b, double &h, double &l, double &s )
+void CColourModel::RGBtoHLS(int r, int g, int b, double& h, double& l, double& s)
 //
 // Converts rgb to hls.
 // r, g, b each in [0, 255]
@@ -290,32 +290,32 @@ void CColourModel::RGBtoHLS( int r, int g, int b, double &h, double &l, double &
 	double	red, green, blue;
 
 	//	Check input range
-	ASSERT( 0 <= r && r <= 255 );
-	ASSERT( 0 <= b && b <= 255 );
-	ASSERT( 0 <= g && g <= 255 );
-	if ( r < 0 )
+	ASSERT(0 <= r && r <= 255);
+	ASSERT(0 <= b && b <= 255);
+	ASSERT(0 <= g && g <= 255);
+	if (r < 0)
 		r = 0;
-	if ( r > 255 )
+	if (r > 255)
 		r = 255;
-	if ( g < 0 )
+	if (g < 0)
 		g = 0;
-	if ( g > 255 )
+	if (g > 255)
 		g = 255;
-	if ( b < 0 )
+	if (b < 0)
 		b = 0;
-	if ( b > 255 )
+	if (b > 255)
 		b = 255;
 
 	// convert r, g, b to [0, 1]
-	red   = r/255.;
-	green = g/255.;
-	blue  = b/255.;
+	red = r / 255.;
+	green = g / 255.;
+	blue = b / 255.;
 
 	maxColor = max(max(red, green), blue);
 	minColor = min(min(red, green), blue);
 
 	// Compute lightness
-	l = (maxColor + minColor)/2;
+	l = (maxColor + minColor) / 2;
 
 	// Compute saturation
 	if (zero_val(maxColor - minColor))
@@ -329,18 +329,18 @@ void CColourModel::RGBtoHLS( int r, int g, int b, double &h, double &l, double &
 		// Chromatic case
 		// First calculate saturation
 		if (l <= 0.5)
-			s = (maxColor - minColor)/(maxColor + minColor);
+			s = (maxColor - minColor) / (maxColor + minColor);
 		else
-			s = (maxColor - minColor)/(2 - maxColor - minColor);
+			s = (maxColor - minColor) / (2 - maxColor - minColor);
 
 		// Now, calculate hue
 		delta = maxColor - minColor;
 		if (zero_val(red - maxColor))
-			h = (green - blue)/delta; // resulting color is between yellow and magenta
+			h = (green - blue) / delta; // resulting color is between yellow and magenta
 		else if (zero_val(green - maxColor))
-			h = 2 + (blue - red)/delta; // resulting color is between cyan and yellow
+			h = 2 + (blue - red) / delta; // resulting color is between cyan and yellow
 		else if (zero_val(blue - maxColor))
-			h = 4 + (red - green)/delta; // resulting color is between magenta and cyan
+			h = 4 + (red - green) / delta; // resulting color is between magenta and cyan
 
 		// convert to degrees
 		h *= 60.;
@@ -362,11 +362,11 @@ double CColourModel::ComputeValue(double n1, double n2, double hue)
 		hue += 360.;
 
 	if (hue < 60.)
-		value = n1 + (n2 - n1)*hue/60.;
+		value = n1 + (n2 - n1) * hue / 60.;
 	else if (hue < 180.)
 		value = n2;
 	else if (hue < 240.)
-		value = n1 + (n2 - n1)*(240. - hue)/60.;
+		value = n1 + (n2 - n1) * (240. - hue) / 60.;
 	else
 		value = n1;
 

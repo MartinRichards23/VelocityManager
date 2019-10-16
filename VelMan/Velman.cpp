@@ -123,10 +123,10 @@ static char BASED_CODE THIS_FILE[] = __FILE__;
 
 SLM_INSTANCE	SLinstance;
 SLM_CONNECTION	SLconnection;
-char SLserver[SLM_HOST_LEN+1];
+char SLserver[SLM_HOST_LEN + 1];
 
 /////////	Callback for heartbeat.
-void Hrtbeat_exception( long code, char *feature )
+void Hrtbeat_exception(long code, char* feature)
 {
 	pid_t	pidgrp;
 
@@ -144,10 +144,10 @@ void Hrtbeat_exception( long code, char *feature )
 	//  we kill the program. See sentinelLM reference manual (page 4.24) for more
 	//  details.
 
-	printf( "%s.\n", slm_message(SLinstance, SLserver, feature, code) );
+	printf("%s.\n", slm_message(SLinstance, SLserver, feature, code));
 
-	if ( code == SLM_NOT_LICENSED || code == SLM_LOST || code == SLM_EXPIRED ||
-		code == SLM_INSUFFICIENT_SERVERS || code == SLM_INVALID_CLIENT )
+	if (code == SLM_NOT_LICENSED || code == SLM_LOST || code == SLM_EXPIRED ||
+		code == SLM_INSUFFICIENT_SERVERS || code == SLM_INVALID_CLIENT)
 	{
 		//  something like this doesn't work. it hangs the program. i suspect it's
 		//  because it's a blocking alert running in a forked process. It would be nice
@@ -161,11 +161,11 @@ void Hrtbeat_exception( long code, char *feature )
 
 		pidgrp = getpgrp();		// find out process group
 
-		slm_disconnect( SLinstance, SLconnection);
-		slm_endapi( &SLinstance );
+		slm_disconnect(SLinstance, SLconnection);
+		slm_endapi(&SLinstance);
 
-		printf( "Velman no longer has a license and has terminated.\n" );
-		sigsend( P_PGID, pidgrp, 9 );	// send SIGKILL to velman
+		printf("Velman no longer has a license and has terminated.\n");
+		sigsend(P_PGID, pidgrp, 9);	// send SIGKILL to velman
 	}
 }
 #endif
@@ -214,7 +214,7 @@ BOOL CVelmanApp::InitInstance()
 	//  the specific initialization routines you do not need.
 
 	//set ini file location
-	if(AfxGetApp()->m_pszProfileName)
+	if (AfxGetApp()->m_pszProfileName)
 	{
 		free((void*)AfxGetApp()->m_pszProfileName);
 	}
@@ -226,12 +226,12 @@ BOOL CVelmanApp::InitInstance()
 
 	CWaitCursor wait;
 
-	OpendContSettings=FALSE; // variable to ensure no more than 1 settings window
+	OpendContSettings = FALSE; // variable to ensure no more than 1 settings window
 	// open at any one time for the contour windows
 
 	//SetDialogBkColor();        // Set dialog background color to gray
 	LoadStdProfileSettings(10); // Load standard INI file options (including MRU)
-	FitInXandY=GetProfileInt("ArithmeticParams", "FitInXandY", 0);
+	FitInXandY = GetProfileInt("ArithmeticParams", "FitInXandY", 0);
 
 #ifdef LICENSE_QUICKANDDIRTY
 	// here we do the quick-and-dirty license checking. Features:
@@ -241,12 +241,12 @@ BOOL CVelmanApp::InitInstance()
 
 	// find current time
 	time_t current_dt = time(NULL);
-	struct tm * tm_dt = gmtime(&current_dt);
+	struct tm* tm_dt = gmtime(&current_dt);
 	// compare to preset expiry time
-	if(tm_dt->tm_year>LICENSE_EXPIRY_YEAR  ||
-		(tm_dt->tm_year==LICENSE_EXPIRY_YEAR && tm_dt->tm_mon>LICENSE_EXPIRY_MONTH) ||
-		(tm_dt->tm_year==LICENSE_EXPIRY_YEAR && tm_dt->tm_mon==LICENSE_EXPIRY_MONTH &&
-		tm_dt->tm_mday>LICENSE_EXPIRY_DAY))
+	if (tm_dt->tm_year > LICENSE_EXPIRY_YEAR ||
+		(tm_dt->tm_year == LICENSE_EXPIRY_YEAR && tm_dt->tm_mon > LICENSE_EXPIRY_MONTH) ||
+		(tm_dt->tm_year == LICENSE_EXPIRY_YEAR && tm_dt->tm_mon == LICENSE_EXPIRY_MONTH &&
+			tm_dt->tm_mday > LICENSE_EXPIRY_DAY))
 	{
 		AfxMessageBox("The evaluation period of VelocityManager has expired.\n\n"
 			"Please contact Cambridge Petroleum Software for details of the purchase"
@@ -258,20 +258,20 @@ BOOL CVelmanApp::InitInstance()
 
 	HaveVelocityCube = TRUE;  // always enabled on PC, but might be reset further down
 	// if running under unix
-	HaveRaytraceLic  = TRUE;  // turn on raytracing menu.
+	HaveRaytraceLic = TRUE;  // turn on raytracing menu.
 
 #ifdef LICENSE_GOODBUTDEAR
 
-	char	feature01[SLM_FEATURE_LEN+1] = "01";	// this is Velocity Manager
-	char	feature02[SLM_FEATURE_LEN+1] = "02";	// this is Velocity Volume + feature 1.
-	char    feature03[SLM_FEATURE_LEN+1] = "03";    // this is ray tracing + features 1 & 2
+	char	feature01[SLM_FEATURE_LEN + 1] = "01";	// this is Velocity Manager
+	char	feature02[SLM_FEATURE_LEN + 1] = "02";	// this is Velocity Volume + feature 1.
+	char    feature03[SLM_FEATURE_LEN + 1] = "03";    // this is ray tracing + features 1 & 2
 	long	status;
 
 	//    initialise the license server
 	SLserver[0] = '\0';
-	if ( (status = slm_startapi( &SLinstance )) != SLM_OK )
+	if ((status = slm_startapi(&SLinstance)) != SLM_OK)
 	{
-		AfxMessageBox( slm_message( SLinstance, SLserver, (char *)0, status ), MB_OK | MB_ICONSTOP );
+		AfxMessageBox(slm_message(SLinstance, SLserver, (char*)0, status), MB_OK | MB_ICONSTOP);
 		return FALSE;
 	}
 
@@ -281,34 +281,34 @@ BOOL CVelmanApp::InitInstance()
 	//  slm_connect( instance, host, feature, keydir, callback )
 	//  note that it's important to set feature to NULL because of the way
 	//  we do the feature priority below.
-	if ( ( SLconnection = slm_connect( SLinstance, SLserver, (char *)0,
-		(char *)0, (long (*)(void*, long, long))NULL ) ) < 0 )
+	if ((SLconnection = slm_connect(SLinstance, SLserver, (char*)0,
+		(char*)0, (long (*)(void*, long, long))NULL)) < 0)
 	{
-		AfxMessageBox( slm_message( SLinstance, SLserver, (char *)0, SLconnection ), MB_OK | MB_ICONSTOP );
+		AfxMessageBox(slm_message(SLinstance, SLserver, (char*)0, SLconnection), MB_OK | MB_ICONSTOP);
 		return FALSE;
 	}
 
 	//  try and get a license. Note that higher numbered features include all lower numbered ones.
 	//  try for raytracing license first (features 3, 2 & 1 enabled)
-	if ( ( status = slm_getlicense(SLinstance, SLconnection, feature03, SLM_GETLIC, 0L, NULL, NULL) ) < 0 )
+	if ((status = slm_getlicense(SLinstance, SLconnection, feature03, SLM_GETLIC, 0L, NULL, NULL)) < 0)
 	{
 		//		no raytracing; try velocity volume (features 2 & 1 only)
 		HaveRaytraceLic = FALSE;
-		if ( ( status = slm_getlicense(SLinstance, SLconnection, feature02, SLM_GETLIC, 0L, NULL, NULL) ) < 0 )
+		if ((status = slm_getlicense(SLinstance, SLconnection, feature02, SLM_GETLIC, 0L, NULL, NULL)) < 0)
 		{
 			//	didn't get a license, try velocity manager instead
 			HaveVelocityCube = FALSE;
-			if ( (status=slm_getlicense(SLinstance, SLconnection, feature01, SLM_GETLIC, 0L, NULL, NULL)) < 0 )
+			if ((status = slm_getlicense(SLinstance, SLconnection, feature01, SLM_GETLIC, 0L, NULL, NULL)) < 0)
 			{
 				//	no licenses for anything available
-				AfxMessageBox( slm_message(SLinstance, SLserver, feature01, status ), MB_OK | MB_ICONSTOP );
+				AfxMessageBox(slm_message(SLinstance, SLserver, feature01, status), MB_OK | MB_ICONSTOP);
 				return FALSE;
 			}
 		}
 	}
 
 	//	establish the heartbeat using Unix style signals via sentinel API and not mainwin
-	slm_heartbeat( SLinstance, SLconnection, 60, Hrtbeat_exception );
+	slm_heartbeat(SLinstance, SLconnection, 60, Hrtbeat_exception);
 
 #endif
 
@@ -323,7 +323,7 @@ BOOL CVelmanApp::InitInstance()
 		RUNTIME_CLASS(CVelmanView));
 	AddDocTemplate(pDocTemplate);
 
-	m_pTemplate1=new CMultiDocTemplate(IDR_VELMANTYPE,
+	m_pTemplate1 = new CMultiDocTemplate(IDR_VELMANTYPE,
 		RUNTIME_CLASS(CVelmanDoc),
 		RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CCoarseModelView));
@@ -342,27 +342,27 @@ BOOL CVelmanApp::InitInstance()
 	RUNTIME_CLASS(CContourView));
 	#endif
 	*/
-	m_pTemplate2=new CMultiDocTemplate(IDR_VELMANTYPE,
+	m_pTemplate2 = new CMultiDocTemplate(IDR_VELMANTYPE,
 		RUNTIME_CLASS(CVelmanDoc),
 		RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CContourView));// might be poss to use CMDIFrameWnd
 
-	m_pTemplate3=new CMultiDocTemplate(IDR_VELMANTYPE,
+	m_pTemplate3 = new CMultiDocTemplate(IDR_VELMANTYPE,
 		RUNTIME_CLASS(CVelmanDoc),
 		RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CWellDataView));
 
-	m_pTemplate4=new CMultiDocTemplate(IDR_VELMANTYPE,
+	m_pTemplate4 = new CMultiDocTemplate(IDR_VELMANTYPE,
 		RUNTIME_CLASS(CVelmanDoc),
 		RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CFineTuneView));
 
-	m_pTemplate6=new CMultiDocTemplate(IDR_VELMANTYPE,
+	m_pTemplate6 = new CMultiDocTemplate(IDR_VELMANTYPE,
 		RUNTIME_CLASS(CVelmanDoc),
 		RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CListOfModelsView));
 
-	m_pTemplate7=new CMultiDocTemplate(IDR_VELMANTYPE,
+	m_pTemplate7 = new CMultiDocTemplate(IDR_VELMANTYPE,
 		RUNTIME_CLASS(CVelmanDoc),
 		RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CMapOfShotpointsView));
@@ -387,7 +387,7 @@ BOOL CVelmanApp::InitInstance()
 	m_pMainWnd->DragAcceptFiles();
 	pMainFrame->ShowWindow(SW_SHOWMAXIMIZED);
 
-	int width=GetProfileInt("Window Placement", "Width", 0);
+	int width = GetProfileInt("Window Placement", "Width", 0);
 	//int height=GetProfileInt("Window Placement", "Height",-1);
 	//if(width!=-1 && height!=-1)
 	//	pMainFrame->SetWindowPos(NULL, 0, 0, width, height, SWP_NOMOVE | SWP_NOZORDER);
@@ -409,8 +409,8 @@ int CVelmanApp::ExitInstance()
 	delete m_pTemplate7;
 
 #ifdef LICENSE_GOODBUTDEAR
-	slm_disconnect( SLinstance, SLconnection);
-	slm_endapi( &SLinstance );
+	slm_disconnect(SLinstance, SLconnection);
+	slm_endapi(&SLinstance);
 #endif
 	return CWinApp::ExitInstance();
 }
@@ -479,8 +479,8 @@ void CVelmanApp::OnFileOpen()
 	// we're on a windows platform
 	CFileDialog dlg(TRUE, ".prj", "*.prj", OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
 		"Project Files (*.prj) | *.prj | All Files (*.*) | *.* ||");
-	char *defdir = getenv("VELMAN_DEFAULTDIR");
-	if ( defdir )
+	char* defdir = getenv("VELMAN_DEFAULTDIR");
+	if (defdir)
 	{
 		directory = defdir;
 	}
@@ -488,28 +488,28 @@ void CVelmanApp::OnFileOpen()
 	{
 		if (!_getcwd(current_dir, 1023))
 			strcpy(current_dir, "/");
-		directory=GetProfileString("New Projects", "TargetDir", current_dir);
-		if (directory=="")
-			directory="/";
+		directory = GetProfileString("New Projects", "TargetDir", current_dir);
+		if (directory == "")
+			directory = "/";
 	}
-	_chdir((const char *)directory);
+	_chdir((const char*)directory);
 
-	char *title="Open Project";
+	char* title = "Open Project";
 
 	// Set initial dir for dialogue.
 	dlg.m_ofn.lpstrInitialDir = (LPCTSTR)directory;
-	dlg.m_ofn.lpstrTitle=title;
-	dlg.m_ofn.Flags&=(~OFN_SHOWHELP);
-	if(dlg.DoModal()==IDOK)
+	dlg.m_ofn.lpstrTitle = title;
+	dlg.m_ofn.Flags &= (~OFN_SHOWHELP);
+	if (dlg.DoModal() == IDOK)
 		CWinApp::OpenDocumentFile(dlg.GetPathName());
 
 #else
 	COpenFileBrowser dlg_new;
-	dlg_new.extensionPhrase="Project Files (*.prj), *.prj";
-	dlg_new.title="Open Project";
-	if (dlg_new.DoModal()==IDOK)
+	dlg_new.extensionPhrase = "Project Files (*.prj), *.prj";
+	dlg_new.title = "Open Project";
+	if (dlg_new.DoModal() == IDOK)
 	{
-		directory=dlg_new.m_shFilePath+dlg_new.m_shFileName;
+		directory = dlg_new.m_shFilePath + dlg_new.m_shFileName;
 		CWinApp::OpenDocumentFile(directory);
 	}
 #endif
@@ -529,11 +529,11 @@ DWORD CVelmanApp::GetProfileColor(CString section, CString entry, DWORD defaultv
 	int r, g, b;
 	CString fileentry;
 
-	fileentry=GetProfileString(section, entry);
-	if(fileentry=="")
+	fileentry = GetProfileString(section, entry);
+	if (fileentry == "")
 		return defaultval;
 
-	sscanf((const char *)fileentry, "%d;%d;%d", &r, &g, &b);
+	sscanf((const char*)fileentry, "%d;%d;%d", &r, &g, &b);
 	return RGB(r, g, b);
 }
 
@@ -544,7 +544,7 @@ BOOL CAboutDlg::OnInitDialog()
 	char buf[256];
 
 	CString version = VELMAN_LONGVERSION;
-	
+
 #ifdef VM64
 	version += " 64bit";
 #else
@@ -569,9 +569,9 @@ BOOL CAboutDlg::OnInitDialog()
 
 	// demo version?
 #ifdef ONLY_DEMO_VERSION
-	char *lictype="demo version";
+	char* lictype = "demo version";
 #else
-	char *lictype="fully licensed version";
+	char* lictype = "fully licensed version";
 #endif
 
 	sprintf(buf, "This is a %s version of VelocityManager.", lictype); // changed this now elm is up.

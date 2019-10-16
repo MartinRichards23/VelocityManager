@@ -200,6 +200,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ImageHasSafeExceptionHandlers />
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -264,6 +265,7 @@
       </OptimizeReferences>
       <EnableCOMDATFolding>
       </EnableCOMDATFolding>
+      <ImageHasSafeExceptionHandlers />
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
