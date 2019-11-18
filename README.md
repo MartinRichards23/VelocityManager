@@ -3,10 +3,8 @@
 https://www.velocitymanager.com
 
 
-# TODO
+# Clients
 
-1) Get details of all VM users
-1) Contact all users about maintenance
-1) Make new installer using Advanced Installer
-1) Find new Licencing solution
-1) Make new release of VM
+## Spirit Production / Centrica
+
+## Repsol Sinopec Resources UK
