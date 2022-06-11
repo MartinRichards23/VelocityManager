@@ -2,12 +2,8 @@
 
 Licence: Creative Commons Attribution-NonCommercial 4.0 International. Please contact us if you would like to use this software commercially.
 
-
 ### Interactive velocity modelling and depth conversion
- 
-
 Depth conversion can take a substantial amount of an analyst’s time, often taking several weeks, or more, and still leave concerns about the accuracy and the ‘what ifs?’  VelocityManager has been designed with these concerns in mind, and offers very substantial improvements in effectiveness. This is achieved through remarkable, new interactive processes based on well proven techniques, developed in conjunction with leading edge mathematical modelling technology. The package is presented in a user friendly and intuitive environment…… “Bringing the power of advanced depth conversion technology to the user of industry standard mapping systems”.
-
  
 ### Effective and interactive
 VelocityManager characterises a new generation of computer software for geophysicists which supports interactive modelling techniques, and flexible management of multi data formats. It is designed to suit both the infrequent user, and the specialist 
@@ -20,9 +16,7 @@ VelocityManager supports a variety of analysis and modelling techniques for the 
 VelocityManager offers the user the ability to integrate all velocity information with a seismic interpretation, and will allow the geophysicist to make judgements interactively on the basis of a fully informed analysis of all data available. 
 Sophisticated features have been developed in order to allow the user to optimise both accuracy and speed of use in velocity modelling and depth conversion.
 
-
-
-
+![vm](https://user-images.githubusercontent.com/39667281/173185362-78688c0a-eaa7-4cc8-abb6-59ee09739ef6.png)
 
 ## VelocityManager features
 
