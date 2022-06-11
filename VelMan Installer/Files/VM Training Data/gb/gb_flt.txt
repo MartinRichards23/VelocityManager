@@ -1,7 +1,0 @@
-;*****Esso V.2 modified with coords
-Esso V.2 with x,y.(GB)
-C1
-3
-7;15;12;15;17;20;58;61;37;40;2
-71;79;63;69;
-0
